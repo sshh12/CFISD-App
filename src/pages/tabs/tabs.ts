@@ -4,6 +4,8 @@ import { NewsPage } from '../../pages/news/news';
 import { GradesPage } from '../../pages/grades/grades';
 import { CalenderPage } from '../../pages/calender/calender';
 
+import { SchoolService } from '../../services/schools';
+
 @Component({
   templateUrl: 'tabs.html'
 })
@@ -13,7 +15,8 @@ export class TabsPage {
   tab2Root = GradesPage;
   tab3Root = CalenderPage;
 
-  constructor() {
+  constructor(public schoolServ: SchoolService) {
 
   }
+
 }

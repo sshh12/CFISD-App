@@ -8,6 +8,8 @@ import { GradesPage } from '../pages/grades/grades';
 import { CalenderPage } from '../pages/calender/calender';
 import { TabsPage } from '../pages/tabs/tabs';
 
+import { SchoolService } from '../services/schools';
+
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
@@ -34,6 +36,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
   providers: [
     StatusBar,
     SplashScreen,
+    SchoolService,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })
