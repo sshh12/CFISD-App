@@ -7,6 +7,7 @@ import os
 def find_all_schools(url, school_type):
 
     found = []
+    colors = {}
 
     schools_html = requests.get(url).text
 
@@ -32,23 +33,46 @@ def find_all_schools(url, school_type):
             'name': name,
             'shortname': short_name,
             'website': website,
-            'colorA': color_a,
-            'colorB': color_b,
-            'colorC': color_c,
+            'colorA': short_name + '-colorA',
+            'colorB': short_name + '-colorB',
+            'colorC': short_name + '-colorC',
             'schooltype': school_type
         })
 
-    return found
+        colors.update({
+            short_name + '-colorA': color_a,
+            short_name + '-colorB': color_b,
+            short_name + '-colorC': color_c
+        })
+
+    return found, colors
 
 
+highschools, highschool_colors = find_all_schools('https://www.cfisd.net/en/schools-facilities/our-schools/high-schools/', 'high')
 
-schools = []
-#schools.extend(find_all_schools('https://www.cfisd.net/en/schools-facilities/our-schools/elementary-schools/', 'elementary'))
-#schools.extend(find_all_schools('https://www.cfisd.net/en/schools-facilities/our-schools/middle-schools/', 'middle'))
-schools.extend(find_all_schools('https://www.cfisd.net/en/schools-facilities/our-schools/high-schools/', 'high'))
+schools = highschools
+
+colors = {
+    'primary': '#488aff',
+    'secondary': '#32db64',
+    'danger': '#f53d3d',
+    'light': '#f4f4f4',
+    'dark': '#222',
+    **highschool_colors
+}
 
 with open(os.path.join('src', 'app', 'schools.ts'), 'w') as ts_file:
 
     ts_file.write('export var Schools = ')
     ts_file.write(json.dumps(schools, indent=4))
     ts_file.write(';')
+
+with open(os.path.join('src', 'theme', 'colors.scss'), 'w') as scss_file:
+
+    scss_file.write('$colors: (\n')
+
+    for name, hex_ in colors.items():
+
+        scss_file.write('    ' + name + ': ' + hex_ + ',\n')
+
+    scss_file.write(');')
