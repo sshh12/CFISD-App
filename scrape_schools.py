@@ -58,6 +58,12 @@ colors = {
     'danger': '#f53d3d',
     'light': '#f4f4f4',
     'dark': '#222',
+    'great': '#4CAF50',
+    'ok': '#FFCA28',
+    'poor': '#673AB7',
+    'bad': '#E53935',
+    'zero': '#424242',
+    'none': '#757575',
     **highschool_colors
 }
 
