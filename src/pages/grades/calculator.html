@@ -6,7 +6,7 @@
 
     <!-- Semester Selection -->
     <ion-toolbar>
-        <ion-segment [(ngModel)]="semester" (click)="resetValues()">
+        <ion-segment [(ngModel)]="semester" (click)="resetValues()" color='{{schoolServ.school.colorB}}'>
             <ion-segment-button value="fall">
                 Fall
             </ion-segment-button>
@@ -59,7 +59,7 @@
 
                 <!-- Exemption Check Box -->
                 <ion-item>
-                    <ion-checkbox (click)="update('exam')" [(ngModel)]="exempt" color="great" checked="true"></ion-checkbox>
+                    <ion-checkbox (click)="update('exam')" [(ngModel)]="exempt" color='{{schoolServ.school.colorC}}' checked="true"></ion-checkbox>
                     <ion-label>Exempt</ion-label>
                 </ion-item>
 
