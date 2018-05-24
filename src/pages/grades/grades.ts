@@ -7,11 +7,10 @@ import { Storage } from '@ionic/storage';
 import { AlertController } from 'ionic-angular';
 import { ToastController } from 'ionic-angular';
 
-import { Globals } from '../../app/globals';
-
 import { CalculatorPage } from '../grades/calculator';
 
 import { SchoolService } from '../../services/schools';
+import { Globals } from '../../app/globals';
 
 // -Grade Objects-
 class AssignmentGrade {

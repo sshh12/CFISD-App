@@ -28,8 +28,6 @@ export class SitesPage {
               public toastCtrl: ToastController,
               public schoolServ: SchoolService) {
 
-    console.log(schoolServ);
-
     this.allTeachers = {};
     this.curTeachers = {};
     this.letters = [];

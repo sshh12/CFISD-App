@@ -1,17 +1,61 @@
 <ion-header>
+
   <ion-navbar color='{{schoolServ.school.colorA}}'>
     <ion-title>Calender</ion-title>
   </ion-navbar>
+
+  <ion-toolbar>
+        <ion-segment [(ngModel)]="calendermode" color='{{schoolServ.school.colorB}}'>
+            <ion-segment-button value="assignments">
+                Assignments
+            </ion-segment-button>
+            <ion-segment-button value="attendance">
+                Attendance
+            </ion-segment-button>
+        </ion-segment>
+    </ion-toolbar>
+
 </ion-header>
 
 <ion-content padding>
-  <h2>Welcome to Ionic!</h2>
-  <p>
-    This starter project comes with simple tabs-based layout for apps
-    that are going to primarily use a Tabbed UI.
-  </p>
-  <p>
-    Take a look at the <code>src/pages/</code> directory to add or change tabs,
-    update any existing page or create new pages.
-  </p>
+
+  <ion-fab top right edge #calfab>
+      <button ion-fab mini color='{{schoolServ.school.colorC}}' (click)="refresh()"><ion-icon name="refresh"></ion-icon></button>
+  </ion-fab>
+
+    <div *ngIf="calendermode == 'assignments'">
+
+    </div>
+
+    <div *ngIf="calendermode == 'attendance'">
+
+      <ion-list>
+
+        <ion-card *ngFor="let month of attendance.months">
+
+          <ion-card-header>
+            <b>{{ month.name }}</b>
+          </ion-card-header>
+
+          <ion-card-content>
+            <ion-row>
+              <ion-col>M</ion-col>
+              <ion-col>T</ion-col>
+              <ion-col>W</ion-col>
+              <ion-col>T</ion-col>
+              <ion-col>F</ion-col>
+              <ion-col>S</ion-col>
+            </ion-row>
+            <ion-row *ngFor="let row of month._rows">
+              <ion-col col-2 *ngFor="let idx of row">
+                <ion-badge *ngIf="idx >= 0" color="{{ getColor(month.days[idx]) }}" (click)="showDayInfo(month.days[idx])">{{ (month.days[idx].day + "").padStart(2, "0") }}</ion-badge>
+              </ion-col>
+            </ion-row>
+          </ion-card-content>
+        </ion-card>
+
+      </ion-list>
+
+    </div>
+
 </ion-content>
