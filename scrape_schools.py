@@ -21,6 +21,7 @@ def find_all_schools(url, school_type):
 
         print(name)
 
+        school_page = requests.get(website).text
         school_css = requests.get(website + '/packages/cfisd_school/themes/cfisd_school/css/main.css').text
 
         color_a = re.search(r'#nav {[\s\S]+?background: (#\w+?);', school_css).group(1)
@@ -29,10 +30,15 @@ def find_all_schools(url, school_type):
 
         color_c = re.search(r'#features {[\s\S]+?background: (#\w+?);', school_css).group(1)
 
+        faculty_url = re.search(r'<a href="(\S+)">Faculty Web Pages', school_page).group(1).strip()
+        bells_url = website + "/en/parents-students/schedules/bell-schedule/"
+
         found.append({
             'name': name,
             'shortname': short_name,
             'website': website,
+            'faculty': faculty_url,
+            'bells': bells_url,
             'colorA': short_name + '-colorA',
             'colorB': short_name + '-colorB',
             'colorC': short_name + '-colorC',
