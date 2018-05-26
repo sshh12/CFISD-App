@@ -69,7 +69,7 @@ colors = {
     'poor': '#673AB7',
     'bad': '#E53935',
     'zero': '#424242',
-    'none': '#757575',
+    'none': '#909090',
     **highschool_colors
 }
 

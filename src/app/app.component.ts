@@ -4,6 +4,7 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
 import { AlertController } from 'ionic-angular';
+import { Storage } from '@ionic/storage';
 
 import { TabsPage } from '../pages/tabs/tabs';
 
@@ -21,6 +22,7 @@ export class MyApp {
               statusBar: StatusBar,
               splashScreen: SplashScreen,
               public alertCtrl: AlertController,
+              private storage: Storage,
               public schoolServ: SchoolService) {
 
     platform.ready().then(() => {
@@ -55,8 +57,12 @@ export class MyApp {
       handler: data => {
         for(let school of Schools) {
           if(school.name == data) {
+
             schoolServ.school = school;
             console.log(schoolServ.school);
+
+            this.storage.set('faculty:list', null);
+
             break;
           }
         }

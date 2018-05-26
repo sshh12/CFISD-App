@@ -17,13 +17,29 @@
 
 </ion-header>
 
-<ion-content padding>
+<ion-content>
 
   <ion-fab top right edge #calfab>
       <button ion-fab mini color='{{schoolServ.school.colorC}}' (click)="refresh()"><ion-icon name="refresh"></ion-icon></button>
   </ion-fab>
 
     <div *ngIf="calendermode == 'assignments'">
+
+      <ion-list *ngIf="currentGrades">
+
+        <ion-item-group *ngFor="let timeslot of currentGrades._assignCalender">
+
+          <ion-item-divider id="{{ timeslot.name }}" color='{{schoolServ.school.colorB}}'>{{ timeslot.name }}</ion-item-divider>
+
+          <ion-item *ngFor="let assignment of timeslot.assignments">
+              <h2><b>{{ assignment.name }}</b></h2>
+              <p>{{ assignment.subject }}</p>
+              <ion-badge item-end color="{{ timeslot.color }}">{{ assignment.datedue }}</ion-badge>
+          </ion-item>
+
+        </ion-item-group>
+
+      </ion-list>
 
     </div>
 

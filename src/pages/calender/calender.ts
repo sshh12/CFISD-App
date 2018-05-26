@@ -19,6 +19,7 @@ export class CalenderPage {
   calendermode: string;
   attendance: any;
   loading: boolean = false;
+  currentGrades: any;
 
   constructor(public navCtrl: NavController,
               public events: Events,
@@ -73,6 +74,66 @@ export class CalenderPage {
     this.storage.get('calender:attendance').then((attend) => {
       if (attend) {
         this.events.publish('calender:attendance', attend);
+      }
+    });
+
+    this.events.subscribe('grades:current', grades => {
+
+      if (grades.status == 'success') {
+
+        this.storage.set('grades:current', grades);
+
+        this.currentGrades = grades;
+
+        let today = Date.now();
+
+        let assignCalender = [
+          {name: 'Future', color: 'great', assignments: []},
+          {name: 'Soon', color: 'ok', assignments: []},
+          {name: 'Past', color: 'poor', assignments: []}
+        ];
+
+        for (let subject of grades.grades) {
+
+          for(let assignment of subject.assignments) {
+
+            assignment.subject = subject.name;
+
+            let timeDiff = today.valueOf() - (new Date(assignment.datedue)).valueOf();
+
+            if(timeDiff > 16 * 60 * 60 * 1000) {
+              assignCalender[2].assignments.push(assignment); // Past
+            } else if(timeDiff > -30 * 60 * 60 * 1000) {
+              assignCalender[1].assignments.push(assignment); // Soon
+            } else {
+              assignCalender[0].assignments.push(assignment); // Future
+            }
+
+          }
+
+        }
+
+        assignCalender[0].assignments.sort((a, b) => {
+          return (new Date(b.datedue)).getTime() - (new Date(a.datedue)).getTime();
+        });
+
+        assignCalender[1].assignments.sort((a, b) => {
+          return (new Date(b.datedue)).getTime() - (new Date(a.datedue)).getTime();
+        });
+
+        assignCalender[2].assignments.sort((a, b) => {
+          return (new Date(b.datedue)).getTime() - (new Date(a.datedue)).getTime();
+        });
+
+        this.currentGrades._assignCalender = assignCalender;
+
+      }
+
+    });
+
+    this.storage.get('grades:current').then((grades) => {
+      if (grades) {
+        this.events.publish('grades:current', grades);
       }
     });
 
