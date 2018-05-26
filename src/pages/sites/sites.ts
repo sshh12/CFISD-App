@@ -64,7 +64,7 @@ export class SitesPage {
    */
   loadTeachers() {
 
-    this.http.get(Globals.SERVER + '/api/faculty/list').subscribe(
+    this.http.get(Globals.SERVER + '/api/faculty/list?url=' + this.schoolServ.school.faculty).subscribe(
       data => {
         this.events.publish('faculty:downloaded', data.json());
       },
@@ -102,8 +102,8 @@ export class SitesPage {
    */
   cleanWebsite(teacher) {
     return teacher.website.replace("https://", "")
-      .replace("http://www.", "")
-      .replace("/a/cfisd.net/", "/../");
+                          .replace("http://www.", "")
+                          .replace("/a/cfisd.net/", "/../");
   }
 
   /**

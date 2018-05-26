@@ -28,8 +28,8 @@
                 <p (click)="openWebsite('https://classroom.google.com/')">classroom.google.com</p>
             </ion-item>
             <ion-item>
-                Library Resources
-                <p (click)="openWebsite('https://destinyweb.cfisd.net/common/welcome.jsp?site=909')">destinyweb.cfisd.net</p>
+                School Cash Online
+                <p (click)="openWebsite('https://cypress-fairbanksisd.schoolcashonline.com/')">schoolcashonline.com</p>
             </ion-item>
         </ion-list>
     </ion-item-group>
@@ -44,7 +44,7 @@
                 <ion-item-sliding *ngFor="let teacher of curTeachers[letter]">
                     <ion-item>
                         {{ teacher.name }}
-                        <p (click)="openWebsite(teacher.website)">{{ cleanWebsite(teacher) }}</p>
+                        <p *ngIf="teacher.website != null" (click)="openWebsite(teacher.website)">{{ cleanWebsite(teacher) }}</p>
                     </ion-item>
                     <ion-item-options side="right">
                         <button ion-button color="primary" (click)="emailTeacher(teacher)"><ion-icon name="mail"></ion-icon></button>

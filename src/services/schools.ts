@@ -6,6 +6,7 @@ export class SchoolService {
     name: '',
     shortname: '',
     website: '',
+    faculty: '',
     colorA: '',
     colorB: '',
     colorC: '',
