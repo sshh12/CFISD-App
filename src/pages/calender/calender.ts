@@ -69,6 +69,8 @@ export class CalenderPage {
 
       }
 
+      this.loading = false;
+
     });
 
     this.storage.get('calender:attendance').then((attend) => {
@@ -128,6 +130,8 @@ export class CalenderPage {
         this.currentGrades._assignCalender = assignCalender;
 
       }
+
+      this.loading = false;
 
     });
 

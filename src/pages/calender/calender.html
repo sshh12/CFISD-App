@@ -23,6 +23,17 @@
       <button ion-fab mini color='{{schoolServ.school.colorC}}' (click)="refresh()"><ion-icon name="refresh"></ion-icon></button>
   </ion-fab>
 
+  <ion-refresher (ionRefresh)="refresh($event)">
+      <ion-refresher-content pullingText="Refresh" refreshingSpinner="crescent" refreshingText="">
+      </ion-refresher-content>
+  </ion-refresher>
+
+  <div *ngIf="loading" text-center>
+      <ion-chip>
+          <ion-label>Please wait...</ion-label>
+      </ion-chip>
+  </div>
+
     <div *ngIf="calendermode == 'assignments'">
 
       <ion-list *ngIf="currentGrades">
