@@ -250,4 +250,8 @@ export class CalenderPage {
     }
   }
 
+  openBellSchedule() : void {
+    window.open(this.schoolServ.school.bells);
+  }
+
 }

@@ -19,7 +19,11 @@
 
 <ion-content>
 
-  <ion-fab top right edge #calfab>
+  <ion-fab *ngIf="calendermode == 'assignments'" top right edge>
+      <button ion-fab mini color='{{schoolServ.school.colorC}}' (click)="openBellSchedule()"><ion-icon name="notifications"></ion-icon></button>
+  </ion-fab>
+
+  <ion-fab *ngIf="calendermode == 'attendance'" top right edge>
       <button ion-fab mini color='{{schoolServ.school.colorC}}' (click)="refresh()"><ion-icon name="refresh"></ion-icon></button>
   </ion-fab>
 
@@ -44,8 +48,7 @@
 
           <ion-item *ngFor="let assignment of timeslot.assignments">
               <h2><b>{{ assignment.name }}</b></h2>
-              <p>{{ assignment.subject }}</p>
-              <ion-badge item-end color="{{ timeslot.color }}">{{ assignment.datedue }}</ion-badge>
+              <p>{{ assignment.subject }} ({{ assignment.datedue }})</p>
           </ion-item>
 
         </ion-item-group>

@@ -7,6 +7,7 @@ export class SchoolService {
     shortname: '',
     website: '',
     faculty: '',
+    bells: '',
     colorA: '',
     colorB: '',
     colorC: '',
