@@ -30,8 +30,13 @@ def find_all_schools(url, school_type):
 
         color_c = re.search(r'#features {[\s\S]+?background: (#\w+?);', school_css).group(1)
 
-        faculty_url = re.search(r'<a href="(\S+)">Faculty Web Pages', school_page).group(1).strip()
+        faculty_url = re.search(r'<a href="(\S+)">Faculty Web Pages<', school_page).group(1).strip()
+        if "campus_list_" not in faculty_url:
+            faculty_url = re.search(r'<a href="(\S+)">Faculty Webpages', school_page).group(1).strip()
+
+        
         bells_url = website + "/en/parents-students/schedules/bell-schedule/"
+        basic_news_url = website + "/en/news/school-news/"
 
         found.append({
             'name': name,
@@ -39,6 +44,7 @@ def find_all_schools(url, school_type):
             'website': website,
             'faculty': faculty_url,
             'bells': bells_url,
+            'basicnews': basic_news_url,
             'colorA': short_name + '-colorA',
             'colorB': short_name + '-colorB',
             'colorC': short_name + '-colorC',
@@ -52,7 +58,6 @@ def find_all_schools(url, school_type):
         })
 
     return found, colors
-
 
 highschools, highschool_colors = find_all_schools('https://www.cfisd.net/en/schools-facilities/our-schools/high-schools/', 'high')
 

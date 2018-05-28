@@ -8,8 +8,7 @@ import { Storage } from '@ionic/storage';
 
 import { TabsPage } from '../pages/tabs/tabs';
 
-import { SchoolService } from '../services/schools';
-import { Schools } from './schools';
+import { SchoolService, promptSchool } from '../services/schools';
 
 @Component({
   templateUrl: 'app.html'
@@ -27,7 +26,7 @@ export class MyApp {
 
     platform.ready().then(() => {
 
-      this.promptSchool(schoolServ);
+      promptSchool(schoolServ, alertCtrl, storage);
 
       statusBar.styleDefault();
       splashScreen.hide();
@@ -36,41 +35,6 @@ export class MyApp {
 
   }
 
-  promptSchool(schoolServ: SchoolService) : void {
 
-    let alert = this.alertCtrl.create();
-    alert.setTitle('School');
-
-    for(let school of Schools) {
-
-      alert.addInput({
-          type: 'radio',
-          label: school.name,
-          value: school.name,
-          checked: false
-        });
-
-    }
-
-    alert.addButton({
-      text: 'Go',
-      handler: data => {
-        for(let school of Schools) {
-          if(school.name == data) {
-
-            schoolServ.school = school;
-            console.log(schoolServ.school);
-
-            this.storage.set('faculty:list', null);
-
-            break;
-          }
-        }
-      }
-    });
-
-    alert.present();
-
-  }
 
 }
