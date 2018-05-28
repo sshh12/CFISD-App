@@ -13,6 +13,7 @@ export class SchoolService {
     faculty: '',
     bells: '',
     basicnews: '',
+    studentnews: '',
     colorA: '',
     colorB: '',
     colorC: '',
