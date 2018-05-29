@@ -26,10 +26,19 @@ export class MyApp {
 
     platform.ready().then(() => {
 
-      promptSchool(schoolServ, alertCtrl, storage);
-
       statusBar.styleDefault();
-      splashScreen.hide();
+
+      this.storage.get('main:school').then((school) => {
+
+        if(school) {
+          schoolServ.school = school;
+        } else {
+          promptSchool(schoolServ, alertCtrl, storage);
+        }
+
+        splashScreen.hide();
+
+      });
 
     });
 

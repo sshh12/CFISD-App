@@ -32,6 +32,25 @@
       </ion-refresher-content>
   </ion-refresher>
 
+  <ion-card *ngIf="!loading && currentGrades.length == 0">
+      <ion-card-header>
+          <b>Login</b>
+      </ion-card-header>
+      <ion-card-content>
+          Use the button in the top right of the Grades tab to login.
+          <br> (
+          <ion-icon name="book" color="dark"></ion-icon> then
+          <ion-icon name="options" color="dark"></ion-icon> then
+          <ion-icon name="person-add" color="great"></ion-icon>)
+      </ion-card-content>
+  </ion-card>
+
+  <ion-card *ngIf="!loading && calendermode == 'attendance' && !attendance.months">
+      <ion-card-content>
+          <h3 text-center>Refresh to see attendance. (<ion-icon name="refresh" color="{{schoolServ.school.colorC}}"></ion-icon>)</h3>
+      </ion-card-content>
+  </ion-card>
+
   <div *ngIf="loading" text-center>
       <ion-chip>
           <ion-label>Please wait...</ion-label>
@@ -40,7 +59,7 @@
 
     <div *ngIf="calendermode == 'assignments'">
 
-      <ion-list *ngIf="currentGrades">
+      <ion-list *ngIf="currentGrades.length == 0">
 
         <ion-item-group *ngFor="let timeslot of currentGrades._assignCalender">
 

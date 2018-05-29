@@ -31,6 +31,7 @@ export class CalenderPage {
 
     this.calendermode = 'assignments';
     this.attendance = {};
+    this.currentGrades = [];
 
     this.events.subscribe('calender:attendance', attend => {
 
@@ -152,7 +153,7 @@ export class CalenderPage {
   }
 
   validCreds(sid: string, password: string): boolean {
-    return password.length > 4 && sid.length == 7;
+    return sid && password && password.length > 4 && sid.length == 7;
   }
 
   loadAttendance(callback?) : void {

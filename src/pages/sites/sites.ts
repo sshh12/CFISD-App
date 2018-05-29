@@ -3,12 +3,13 @@ import { NavController } from 'ionic-angular';
 import { Events } from 'ionic-angular';
 
 import { Http } from '@angular/http';
+import { AlertController } from 'ionic-angular';
 import { Storage } from '@ionic/storage';
 import { ToastController } from 'ionic-angular';
 
 import { Globals } from '../../app/globals';
 
-import { SchoolService } from '../../services/schools';
+import { SchoolService, promptSchool } from '../../services/schools';
 
 @Component({
   selector: 'page-sites',
@@ -25,6 +26,7 @@ export class SitesPage {
               public events: Events,
               private http: Http,
               private storage: Storage,
+              public alertCtrl: AlertController,
               public toastCtrl: ToastController,
               public schoolServ: SchoolService) {
 
@@ -142,6 +144,11 @@ export class SitesPage {
   onCancel() {
     this.curTeachers = this.allTeachers;
     this.showGeneral = true;
+  }
+
+  switchSchool() {
+    promptSchool(this.schoolServ, this.alertCtrl, this.storage);
+    this.events.publish('faculty:downloaded', {});
   }
 
 }

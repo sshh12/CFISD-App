@@ -24,7 +24,7 @@ export class SchoolService {
 export function promptSchool(schoolServ: SchoolService, alertCtrl: AlertController, storage: Storage) : void {
 
   let alert = alertCtrl.create();
-  alert.setTitle('School');
+  alert.setTitle('High School');
 
   for(let school of Schools) {
 
