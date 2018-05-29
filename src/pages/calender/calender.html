@@ -32,7 +32,7 @@
       </ion-refresher-content>
   </ion-refresher>
 
-  <ion-card *ngIf="!loading && currentGrades.length == 0">
+  <ion-card *ngIf="!loading && !currentGrades">
       <ion-card-header>
           <b>Login</b>
       </ion-card-header>
@@ -59,7 +59,7 @@
 
     <div *ngIf="calendermode == 'assignments'">
 
-      <ion-list *ngIf="currentGrades.length == 0">
+      <ion-list *ngIf="currentGrades">
 
         <ion-item-group *ngFor="let timeslot of currentGrades._assignCalender">
 
