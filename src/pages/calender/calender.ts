@@ -60,6 +60,11 @@ export class CalenderPage {
 
           }
 
+          if(currentRow.length > 0) {
+            while(currentRow.length < 6) currentRow.push("-1");
+            rows.push(currentRow);
+          }
+
           while(rows[0] && rows[0].length < 6) rows[0].unshift("-1");
 
           month._rows = rows;

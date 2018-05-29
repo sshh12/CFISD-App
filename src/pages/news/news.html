@@ -6,29 +6,37 @@
 
 <ion-content padding>
 
+  <ion-refresher (ionRefresh)="refresh($event)">
+      <ion-refresher-content pullingText="Refresh" refreshingSpinner="crescent" refreshingText="Refreshing...">
+      </ion-refresher-content>
+  </ion-refresher>
+
   <ion-list>
 
-          <ion-card>
+    <div *ngFor="let article of allNews; let i = index">
 
-                <ion-item>
-                    <ion-avatar item-start><img src=""></ion-avatar>
-                    <h2>News</h2>
-                    <p>Date</p>
-                </ion-item>
+      <ion-card *ngIf="i < 20">
 
-                <img src="">
+        <ion-item>
+          <h2>{{ article.organization }}</h2>
+          <p>{{ article.date }}</p>
+        </ion-item>
 
-                <ion-card-content>
-                    <p text-center>Stuff</p>
-                </ion-card-content>
+        <img src="{{ article.image }}">
 
-                <ion-row>
-                    <ion-col>
-                        <button ion-button icon-left clear small><ion-icon name="exit"></ion-icon><div>View</div></button>
-                    </ion-col>
-                </ion-row>
+        <ion-card-content>
+          <p text-center>{{ article.text }}</p>
+        </ion-card-content>
 
-            </ion-card>
+        <ion-row>
+          <ion-col>
+            <button ion-button icon-left clear small (click)="openArticle(article);"><ion-icon name="exit"></ion-icon><div>View</div></button>
+          </ion-col>
+        </ion-row>
+
+      </ion-card>
+
+    </div>
 
   </ion-list>
 

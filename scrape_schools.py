@@ -4,18 +4,6 @@ import json
 import re
 import os
 
-student_news = {
-    'bridgeland': 'http://bhsthebridge.com/',
-    'cypresscreek': 'https://www.cchspress.com/',
-    'cypressfalls': 'https://www.cfwingspan.com/',
-    'cypresslakes': 'http://thelakeview.co/',
-    'cypresswoods': 'https://www.thecrimsonconnection.com/',
-    'cypressranch': 'https://cyranchnews.com/',
-    'cypressridge': 'https://crhsrampage.com/',
-    'jerseyvillage': 'https://jvhsperegrine.com/',
-    'langhamcreek': 'https://lchowler.net/'
-}
-
 def find_all_schools(url, school_type):
 
     found = []
@@ -46,10 +34,6 @@ def find_all_schools(url, school_type):
         if "campus_list_" not in faculty_url:
             faculty_url = re.search(r'<a href="(\S+)">Faculty Webpages', school_page).group(1).strip()
 
-        student_website = None
-        if short_name in student_news:
-            student_website = student_news[short_name]
-
         bells_url = website + "/en/parents-students/schedules/bell-schedule/"
         basic_news_url = website + "/en/news/school-news/"
 
@@ -60,7 +44,6 @@ def find_all_schools(url, school_type):
             'faculty': faculty_url,
             'bells': bells_url,
             'basicnews': basic_news_url,
-            'studentnews': student_website,
             'colorA': short_name + '-colorA',
             'colorB': short_name + '-colorB',
             'colorC': short_name + '-colorC',

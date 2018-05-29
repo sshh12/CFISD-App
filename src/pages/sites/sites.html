@@ -31,9 +31,9 @@
                 School Cash Online
                 <p (click)="openWebsite('https://cypress-fairbanksisd.schoolcashonline.com/')">schoolcashonline.com</p>
             </ion-item>
-            <ion-item>
+            <ion-item (click)="switchSchool()">
                 Edit School
-                <p (click)="switchSchool()">Switch from {{schoolServ.school.name}}</p>
+                <p>Switch from {{schoolServ.school.name}}</p>
             </ion-item>
         </ion-list>
     </ion-item-group>

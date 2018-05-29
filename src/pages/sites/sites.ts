@@ -59,6 +59,10 @@ export class SitesPage {
       }
     });
 
+    this.events.subscribe('main:school', school => {
+      this.loadTeachers();
+    });
+
   }
 
   /**
@@ -147,8 +151,7 @@ export class SitesPage {
   }
 
   switchSchool() {
-    promptSchool(this.schoolServ, this.alertCtrl, this.storage);
-    this.events.publish('faculty:downloaded', {});
+    promptSchool(this.schoolServ, this.alertCtrl, this.storage, this.events);
   }
 
 }

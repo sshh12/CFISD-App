@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { AlertController } from 'ionic-angular';
 import { Storage } from '@ionic/storage';
+import { Events } from 'ionic-angular';
 
 import { Schools } from '../app/schools';
 
@@ -13,7 +14,6 @@ export class SchoolService {
     faculty: '',
     bells: '',
     basicnews: '',
-    studentnews: '',
     colorA: '',
     colorB: '',
     colorC: '',
@@ -21,7 +21,7 @@ export class SchoolService {
   };
 }
 
-export function promptSchool(schoolServ: SchoolService, alertCtrl: AlertController, storage: Storage) : void {
+export function promptSchool(schoolServ: SchoolService, alertCtrl: AlertController, storage: Storage, events: Events) : void {
 
   let alert = alertCtrl.create();
   alert.setTitle('High School');
@@ -51,6 +51,7 @@ export function promptSchool(schoolServ: SchoolService, alertCtrl: AlertControll
 
           storage.set('main:school', school);
           storage.set('faculty:list', null);
+          events.publish('main:school', school);
 
           break;
 

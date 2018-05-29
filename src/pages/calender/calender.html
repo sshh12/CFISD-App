@@ -32,7 +32,7 @@
       </ion-refresher-content>
   </ion-refresher>
 
-  <ion-card *ngIf="!loading && !currentGrades">
+  <ion-card *ngIf="!loading && currentGrades.length == 0">
       <ion-card-header>
           <b>Login</b>
       </ion-card-header>
