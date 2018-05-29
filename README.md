@@ -7,7 +7,7 @@ An app I created for [Cypress Fairbanks ISD](https://www.cfisd.net/en/).
 + [NodeJS](https://nodejs.org/)
 
 ## Releases
-+ [Android (Coming Soon)](#)
++ [Android Beta](https://play.google.com/apps/testing/io.sshh.cfisdapp/)
 + [Apple (Coming Soon)](#)
 
 ## What
