@@ -18,4 +18,4 @@ grades and other information, the app uses the my unoffical [CFISD API](https://
 
 #### Screenshots
 
-![screenshot 1](https://lh3.googleusercontent.com/d_OSiXtc0fDztaEIwzis-2qVOcQxiuQ7YypDaPlIXK2rUwS9KyW-6fGPTX5HKIkOc00=w2330-h1492-rw) ![screenshot 2](https://lh3.googleusercontent.com/7MaLdk9MbYfAZ4knjPwn4wx-oYnkQVOm-3GG7-fR7r8KgWVJ8Pqc4vDIwhjikeZicxE=w2330-h1492-rw) ![screenshot 3](https://lh3.googleusercontent.com/gPTg23_xcUhiBd8H8BdflYF8-cSvKzgdjLHIXqW4YfytFaLJ-EkwMcCPMjkHaMCJUkk=w2330-h1492-rw) ![screenshot 4](https://lh3.googleusercontent.com/YSAvxtyb-VYoQljgbm9mF_8kHooGf_eLKqNd89jaGIxxDyaJMCRFcEtuwam8XhijrCg=w2330-h1492-rw)
+![screenshot 1](https://lh3.googleusercontent.com/d_OSiXtc0fDztaEIwzis-2qVOcQxiuQ7YypDaPlIXK2rUwS9KyW-6fGPTX5HKIkOc00=w300-h600-rw) ![screenshot 2](https://lh3.googleusercontent.com/7MaLdk9MbYfAZ4knjPwn4wx-oYnkQVOm-3GG7-fR7r8KgWVJ8Pqc4vDIwhjikeZicxE=w300-h600-rw) ![screenshot 3](https://lh3.googleusercontent.com/gPTg23_xcUhiBd8H8BdflYF8-cSvKzgdjLHIXqW4YfytFaLJ-EkwMcCPMjkHaMCJUkk=w300-h600-rw) ![screenshot 4](https://lh3.googleusercontent.com/YSAvxtyb-VYoQljgbm9mF_8kHooGf_eLKqNd89jaGIxxDyaJMCRFcEtuwam8XhijrCg=w300-h600-rw)
