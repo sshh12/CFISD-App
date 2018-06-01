@@ -14,7 +14,7 @@ An app I created for [Cypress Fairbanks ISD](https://www.cfisd.net/en/).
 ## What
 The CFISD app was built as a utility for both Android and Apple users. The app includes ways to access
 news, grades, attendance, teachers, and more with the option to change between schools with ease. In order to access
-grades and other information, the app uses the my unoffical [CFISD API](https://github.com/sshh12/CyRanch-App-Server).
+grades and other information, the app uses the unoffical [CFISD API](https://github.com/sshh12/CyRanch-App-Server).
 
 #### Screenshots
 
