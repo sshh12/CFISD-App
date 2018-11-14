@@ -49,6 +49,7 @@ export class CalendarPage {
           for(let day in month.days) {
 
             let date = new Date(month.days[day].timestamp * 1000);
+            date.setHours(11); // normalize just in case weird times
             let weekday = (date.getDay() + 1) % 7; // Inc date by one b/c of timezone offset
 
             if(weekday == 0 && currentRow.length > 0) {
@@ -234,7 +235,8 @@ export class CalendarPage {
 
     if(day.info) {
 
-      let date = new Date(day.timestamp * 1000 + 6 * 60 * 60);
+      // weird time offset, so adding so date aligned w/calender
+      let date = new Date(day.timestamp * 1000 + 6 * 60 * 60 * 1000);
       let msg = "";
 
       for(let period in day.info){
