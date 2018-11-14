@@ -46,19 +46,6 @@
         </ion-refresher-content>
     </ion-refresher>
 
-    <!-- Default Pre-Login Screen -->
-    <ion-card *ngIf="!loading && currentGrades.length == 0">
-        <ion-card-header>
-            Login
-        </ion-card-header>
-        <ion-card-content>
-            Use the button in the top right to login.
-            <br> (
-            <ion-icon name="options" color="mustangblue"></ion-icon> then
-            <ion-icon name="person-add" color="great"></ion-icon>)
-        </ion-card-content>
-    </ion-card>
-
     <!-- Loading... -->
     <div *ngIf="loading" text-center>
         <ion-chip>
@@ -72,6 +59,19 @@
         <!-- Current Grades -->
         <ion-list *ngSwitchCase="'current'">
 
+            <!-- Default Pre-Login Screen -->
+            <ion-card *ngIf="!loading && currentGrades.length == 0">
+                <ion-card-header>
+                    Login
+                </ion-card-header>
+                <ion-card-content>
+                    Use the button in the top right to login.
+                    <br> (
+                    <ion-icon name="options" color="mustangblue"></ion-icon> then
+                    <ion-icon name="person-add" color="great"></ion-icon>)
+                </ion-card-content>
+            </ion-card>
+
             <ion-item *ngFor="let subject of currentGrades">
                 <ion-icon name='{{ getIcon(subject) }}' item-start></ion-icon>
                 <ion-label (click)="openClassGrades(subject)">{{ subject.name }}</ion-label>
@@ -84,6 +84,19 @@
 
         <!-- Reportcard Grades -->
         <div *ngSwitchCase="'reportcard'">
+
+            <!-- Default Pre-Login Screen -->
+            <ion-card *ngIf="!loading && reportCardGrades.length == 0">
+                <ion-card-header>
+                    Login or Refresh
+                </ion-card-header>
+                <ion-card-content>
+                    Use the button in the top right to login.
+                    <br> (
+                    <ion-icon name="options" color="mustangblue"></ion-icon> then
+                    <ion-icon name="person-add" color="great"></ion-icon>)
+                </ion-card-content>
+            </ion-card>
 
             <ion-list>
 
@@ -137,6 +150,19 @@
         <!-- Transcript -->
         <div *ngSwitchCase="'transcript'">
 
+          <!-- Default Pre-Login Screen -->
+          <ion-card *ngIf="!loading && !transcript.gpa">
+              <ion-card-header>
+                  Login or Refresh
+              </ion-card-header>
+              <ion-card-content>
+                  Use the button in the top right to login.
+                  <br> (
+                  <ion-icon name="options" color="mustangblue"></ion-icon> then
+                  <ion-icon name="person-add" color="great"></ion-icon>)
+              </ion-card-content>
+          </ion-card>
+
           <ion-card *ngIf="transcript.gpa">
             <ion-card-header>
                 <h1 text-center><b>{{ gpa.toFixed(3) }}</b></h1>
@@ -156,13 +182,6 @@
                     <div text-center><ion-badge color='{{ getColorRank(percentile) }}'>Top {{ percentile }}%</ion-badge></div>
                   </ion-item>
                 </ion-list>
-            </ion-card-content>
-          </ion-card>
-
-          <!-- Reload Button -->
-          <ion-card *ngIf="!transcript.gpa">
-            <ion-card-content>
-                <h3 text-center>Reload to see GPA</h3>
             </ion-card-content>
           </ion-card>
 

@@ -1,11 +1,11 @@
 <ion-header>
 
   <ion-navbar color='{{schoolServ.school.colorA}}'>
-    <ion-title>Calender</ion-title>
+    <ion-title>Calendar</ion-title>
   </ion-navbar>
 
   <ion-toolbar>
-        <ion-segment [(ngModel)]="calendermode" color='{{schoolServ.school.colorB}}'>
+        <ion-segment [(ngModel)]="calendarmode" color='{{schoolServ.school.colorB}}'>
             <ion-segment-button value="assignments">
                 Assignments
             </ion-segment-button>
@@ -19,11 +19,11 @@
 
 <ion-content>
 
-  <ion-fab *ngIf="calendermode == 'assignments'" top right edge>
+  <ion-fab *ngIf="calendarmode == 'assignments'" top right edge>
       <button ion-fab mini color='{{schoolServ.school.colorC}}' (click)="openBellSchedule()"><ion-icon name="notifications"></ion-icon></button>
   </ion-fab>
 
-  <ion-fab *ngIf="calendermode == 'attendance'" top right edge>
+  <ion-fab *ngIf="calendarmode == 'attendance'" top right edge>
       <button ion-fab mini color='{{schoolServ.school.colorC}}' (click)="refresh()"><ion-icon name="refresh"></ion-icon></button>
   </ion-fab>
 
@@ -45,7 +45,7 @@
       </ion-card-content>
   </ion-card>
 
-  <ion-card *ngIf="!loading && calendermode == 'attendance' && !attendance.months">
+  <ion-card *ngIf="!loading && calendarmode == 'attendance' && !attendance.months">
       <ion-card-content>
           <h3 text-center>Refresh to see attendance. (<ion-icon name="refresh" color="{{schoolServ.school.colorC}}"></ion-icon>)</h3>
       </ion-card-content>
@@ -57,11 +57,11 @@
       </ion-chip>
   </div>
 
-    <div *ngIf="calendermode == 'assignments'">
+    <div *ngIf="calendarmode == 'assignments'">
 
       <ion-list *ngIf="currentGrades">
 
-        <ion-item-group *ngFor="let timeslot of currentGrades._assignCalender">
+        <ion-item-group *ngFor="let timeslot of currentGrades._assignCalendar">
 
           <ion-item-divider id="{{ timeslot.name }}" color='{{schoolServ.school.colorB}}'>{{ timeslot.name }}</ion-item-divider>
 
@@ -76,7 +76,7 @@
 
     </div>
 
-    <div *ngIf="calendermode == 'attendance'">
+    <div *ngIf="calendarmode == 'attendance'">
 
       <ion-list>
 

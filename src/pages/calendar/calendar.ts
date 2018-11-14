@@ -11,12 +11,12 @@ import { SchoolService } from '../../services/schools';
 import { Globals } from '../../app/globals';
 
 @Component({
-  selector: 'page-calender',
-  templateUrl: 'calender.html'
+  selector: 'page-calendar',
+  templateUrl: 'calendar.html'
 })
-export class CalenderPage {
+export class CalendarPage {
 
-  calendermode: string;
+  calendarmode: string;
   attendance: any;
   loading: boolean = false;
   currentGrades: any;
@@ -29,19 +29,19 @@ export class CalenderPage {
               private http: Http,
               public schoolServ: SchoolService) {
 
-    this.calendermode = 'assignments';
+    this.calendarmode = 'assignments';
     this.attendance = {};
     this.currentGrades = [];
 
-    this.events.subscribe('calender:attendance', attend => {
+    this.events.subscribe('calendar:attendance', attend => {
 
       console.log(attend);
 
       if(attend.status == 'success') {
 
-        this.storage.set('calender:attendance', attend);
+        this.storage.set('calendar:attendance', attend);
 
-        for(let month of attend.months) { // Create matrix for rendering calender
+        for(let month of attend.months) { // Create matrix for rendering calendar
 
           let rows = [];
           let currentRow = [];
@@ -79,9 +79,9 @@ export class CalenderPage {
 
     });
 
-    this.storage.get('calender:attendance').then((attend) => {
+    this.storage.get('calendar:attendance').then((attend) => {
       if (attend) {
-        this.events.publish('calender:attendance', attend);
+        this.events.publish('calendar:attendance', attend);
       }
     });
 
@@ -95,7 +95,7 @@ export class CalenderPage {
 
         let today = Date.now();
 
-        let assignCalender = [
+        let assignCalendar = [
           {name: 'Future', color: 'great', assignments: []},
           {name: 'Soon', color: 'ok', assignments: []},
           {name: 'Past', color: 'poor', assignments: []}
@@ -110,30 +110,30 @@ export class CalenderPage {
             let timeDiff = today.valueOf() - (new Date(assignment.datedue)).valueOf();
 
             if(timeDiff > 16 * 60 * 60 * 1000) {
-              assignCalender[2].assignments.push(assignment); // Past
+              assignCalendar[2].assignments.push(assignment); // Past
             } else if(timeDiff > -30 * 60 * 60 * 1000) {
-              assignCalender[1].assignments.push(assignment); // Soon
+              assignCalendar[1].assignments.push(assignment); // Soon
             } else {
-              assignCalender[0].assignments.push(assignment); // Future
+              assignCalendar[0].assignments.push(assignment); // Future
             }
 
           }
 
         }
 
-        assignCalender[0].assignments.sort((a, b) => {
+        assignCalendar[0].assignments.sort((a, b) => {
           return (new Date(b.datedue)).getTime() - (new Date(a.datedue)).getTime();
         });
 
-        assignCalender[1].assignments.sort((a, b) => {
+        assignCalendar[1].assignments.sort((a, b) => {
           return (new Date(b.datedue)).getTime() - (new Date(a.datedue)).getTime();
         });
 
-        assignCalender[2].assignments.sort((a, b) => {
+        assignCalendar[2].assignments.sort((a, b) => {
           return (new Date(b.datedue)).getTime() - (new Date(a.datedue)).getTime();
         });
 
-        this.currentGrades._assignCalender = assignCalender;
+        this.currentGrades._assignCalendar = assignCalendar;
 
       }
 
@@ -193,7 +193,7 @@ export class CalenderPage {
           }
           let json = data.json();
           json._updatedDate = new Date();
-          this.events.publish('calender:attendance', json);
+          this.events.publish('calendar:attendance', json);
 
         },
           error => {

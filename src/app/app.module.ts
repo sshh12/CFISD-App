@@ -8,7 +8,7 @@ import { GradesPage } from '../pages/grades/grades';
 import { AssignmentsPage } from '../pages/grades/grades';
 import { CalculatorPage } from '../pages/grades/calculator';
 import { LegalPage } from '../pages/grades/grades';
-import { CalenderPage } from '../pages/calender/calender';
+import { CalendarPage } from '../pages/calendar/calendar';
 import { SitesPage } from '../pages/sites/sites';
 import { TabsPage } from '../pages/tabs/tabs';
 
@@ -29,7 +29,7 @@ import { AdMobFree } from '@ionic-native/admob-free';
     AssignmentsPage,
     CalculatorPage,
     LegalPage,
-    CalenderPage,
+    CalendarPage,
     SitesPage,
     TabsPage
   ],
@@ -47,7 +47,7 @@ import { AdMobFree } from '@ionic-native/admob-free';
     AssignmentsPage,
     CalculatorPage,
     LegalPage,
-    CalenderPage,
+    CalendarPage,
     SitesPage,
     TabsPage
   ],
