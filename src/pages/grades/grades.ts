@@ -49,8 +49,8 @@ export class GradesPage {
   loading: boolean;
   classList: object;
 
-  currentGrades: SubjectGrade[];
-  reportCardGrades: SubjectReportCard[];
+  currentGrades: SubjectGrade[] = [];
+  reportCardGrades: SubjectReportCard[] = [];
   lastUpdated: Date;
 
   transcript: any = {};
@@ -70,7 +70,6 @@ export class GradesPage {
     // Defaults
     this.gradeType = "current";
     this.loading = false;
-    this.currentGrades = [];
 
     // Handle current grade data
     this.events.subscribe('grades:current', grades => {
