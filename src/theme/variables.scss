@@ -74,4 +74,554 @@
   --ion-color-light-contrast-rgb: 0, 0, 0;
   --ion-color-light-shade: #d7d8da;
   --ion-color-light-tint: #f5f6f9;
+
+  /** School Themes **/
+  --ion-color-bridgeland-colorA: #1a2b49;
+  --ion-color-bridgeland-colorA-rgb: 26, 43, 73;
+  --ion-color-bridgeland-colorA-contrast: #ffffff;
+  --ion-color-bridgeland-colorA-contrast-rgb: 255, 255, 255;
+  --ion-color-bridgeland-colorA-shade: #171717;
+  --ion-color-bridgeland-colorA-tint: #303030;
+  --ion-color-bridgeland-colorB: #27416f;
+  --ion-color-bridgeland-colorB-rgb: 39, 65, 111;
+  --ion-color-bridgeland-colorB-contrast: #ffffff;
+  --ion-color-bridgeland-colorB-contrast-rgb: 255, 255, 255;
+  --ion-color-bridgeland-colorB-shade: #232323;
+  --ion-color-bridgeland-colorB-tint: #3c3c3c;
+  --ion-color-bridgeland-colorC: #f83100;
+  --ion-color-bridgeland-colorC-rgb: 248, 49, 0;
+  --ion-color-bridgeland-colorC-contrast: #ffffff;
+  --ion-color-bridgeland-colorC-contrast-rgb: 255, 255, 255;
+  --ion-color-bridgeland-colorC-shade: #dfdfdf;
+  --ion-color-bridgeland-colorC-tint: #f8f8f8;
+  --ion-color-cyfair-colorA: #652325;
+  --ion-color-cyfair-colorA-rgb: 101, 35, 37;
+  --ion-color-cyfair-colorA-contrast: #ffffff;
+  --ion-color-cyfair-colorA-contrast-rgb: 255, 255, 255;
+  --ion-color-cyfair-colorA-shade: #5a5a5a;
+  --ion-color-cyfair-colorA-tint: #747474;
+  --ion-color-cyfair-colorB: #8b3033;
+  --ion-color-cyfair-colorB-rgb: 139, 48, 51;
+  --ion-color-cyfair-colorB-contrast: #ffffff;
+  --ion-color-cyfair-colorB-contrast-rgb: 255, 255, 255;
+  --ion-color-cyfair-colorB-shade: #7d7d7d;
+  --ion-color-cyfair-colorB-tint: #969696;
+  --ion-color-cyfair-colorC: #5e120c;
+  --ion-color-cyfair-colorC-rgb: 94, 18, 12;
+  --ion-color-cyfair-colorC-contrast: #ffffff;
+  --ion-color-cyfair-colorC-contrast-rgb: 255, 255, 255;
+  --ion-color-cyfair-colorC-shade: #545454;
+  --ion-color-cyfair-colorC-tint: #6e6e6e;
+  --ion-color-cypresscreek-colorA: #0038a7;
+  --ion-color-cypresscreek-colorA-rgb: 0, 56, 167;
+  --ion-color-cypresscreek-colorA-contrast: #ffffff;
+  --ion-color-cypresscreek-colorA-contrast-rgb: 255, 255, 255;
+  --ion-color-cypresscreek-colorA-shade: #000000;
+  --ion-color-cypresscreek-colorA-tint: #191919;
+  --ion-color-cypresscreek-colorB: #0049da;
+  --ion-color-cypresscreek-colorB-rgb: 0, 73, 218;
+  --ion-color-cypresscreek-colorB-contrast: #ffffff;
+  --ion-color-cypresscreek-colorB-contrast-rgb: 255, 255, 255;
+  --ion-color-cypresscreek-colorB-shade: #000000;
+  --ion-color-cypresscreek-colorB-tint: #191919;
+  --ion-color-cypresscreek-colorC: #001e5a;
+  --ion-color-cypresscreek-colorC-rgb: 0, 30, 90;
+  --ion-color-cypresscreek-colorC-contrast: #ffffff;
+  --ion-color-cypresscreek-colorC-contrast-rgb: 255, 255, 255;
+  --ion-color-cypresscreek-colorC-shade: #000000;
+  --ion-color-cypresscreek-colorC-tint: #191919;
+  --ion-color-cypressfalls-colorA: #42a02c;
+  --ion-color-cypressfalls-colorA-rgb: 66, 160, 44;
+  --ion-color-cypressfalls-colorA-contrast: #ffffff;
+  --ion-color-cypressfalls-colorA-contrast-rgb: 255, 255, 255;
+  --ion-color-cypressfalls-colorA-shade: #3b3b3b;
+  --ion-color-cypressfalls-colorA-tint: #545454;
+  --ion-color-cypressfalls-colorB: #53c837;
+  --ion-color-cypressfalls-colorB-rgb: 83, 200, 55;
+  --ion-color-cypressfalls-colorB-contrast: #ffffff;
+  --ion-color-cypressfalls-colorB-contrast-rgb: 255, 255, 255;
+  --ion-color-cypressfalls-colorB-shade: #4a4a4a;
+  --ion-color-cypressfalls-colorB-tint: #646464;
+  --ion-color-cypressfalls-colorC: #fcd901;
+  --ion-color-cypressfalls-colorC-rgb: 252, 217, 1;
+  --ion-color-cypressfalls-colorC-contrast: #ffffff;
+  --ion-color-cypressfalls-colorC-contrast-rgb: 255, 255, 255;
+  --ion-color-cypressfalls-colorC-shade: #e2e2e2;
+  --ion-color-cypressfalls-colorC-tint: #fcfcfc;
+  --ion-color-cypresslakes-colorA: #d20308;
+  --ion-color-cypresslakes-colorA-rgb: 210, 3, 8;
+  --ion-color-cypresslakes-colorA-contrast: #ffffff;
+  --ion-color-cypresslakes-colorA-contrast-rgb: 255, 255, 255;
+  --ion-color-cypresslakes-colorA-shade: #bdbdbd;
+  --ion-color-cypresslakes-colorA-tint: #d6d6d6;
+  --ion-color-cypresslakes-colorB: #fc0c12;
+  --ion-color-cypresslakes-colorB-rgb: 252, 12, 18;
+  --ion-color-cypresslakes-colorB-contrast: #ffffff;
+  --ion-color-cypresslakes-colorB-contrast-rgb: 255, 255, 255;
+  --ion-color-cypresslakes-colorB-shade: #e2e2e2;
+  --ion-color-cypresslakes-colorB-tint: #fcfcfc;
+  --ion-color-cypresslakes-colorC: #d0d0d0;
+  --ion-color-cypresslakes-colorC-rgb: 208, 208, 208;
+  --ion-color-cypresslakes-colorC-contrast: #ffffff;
+  --ion-color-cypresslakes-colorC-contrast-rgb: 255, 255, 255;
+  --ion-color-cypresslakes-colorC-shade: #bbbbbb;
+  --ion-color-cypresslakes-colorC-tint: #d4d4d4;
+  --ion-color-cypresspark-colorA: #4f471b;
+  --ion-color-cypresspark-colorA-rgb: 79, 71, 27;
+  --ion-color-cypresspark-colorA-contrast: #ffffff;
+  --ion-color-cypresspark-colorA-contrast-rgb: 255, 255, 255;
+  --ion-color-cypresspark-colorA-shade: #474747;
+  --ion-color-cypresspark-colorA-tint: #606060;
+  --ion-color-cypresspark-colorB: #756829;
+  --ion-color-cypresspark-colorB-rgb: 117, 104, 41;
+  --ion-color-cypresspark-colorB-contrast: #ffffff;
+  --ion-color-cypresspark-colorB-contrast-rgb: 255, 255, 255;
+  --ion-color-cypresspark-colorB-shade: #696969;
+  --ion-color-cypresspark-colorB-tint: #828282;
+  --ion-color-cypresspark-colorC: #c5b358;
+  --ion-color-cypresspark-colorC-rgb: 197, 179, 88;
+  --ion-color-cypresspark-colorC-contrast: #ffffff;
+  --ion-color-cypresspark-colorC-contrast-rgb: 255, 255, 255;
+  --ion-color-cypresspark-colorC-shade: #b1b1b1;
+  --ion-color-cypresspark-colorC-tint: #cacaca;
+  --ion-color-cypressranch-colorA: #202c85;
+  --ion-color-cypressranch-colorA-rgb: 32, 44, 133;
+  --ion-color-cypressranch-colorA-contrast: #ffffff;
+  --ion-color-cypressranch-colorA-contrast-rgb: 255, 255, 255;
+  --ion-color-cypressranch-colorA-shade: #1c1c1c;
+  --ion-color-cypressranch-colorA-tint: #363636;
+  --ion-color-cypressranch-colorB: #2a3aae;
+  --ion-color-cypressranch-colorB-rgb: 42, 58, 174;
+  --ion-color-cypressranch-colorB-contrast: #ffffff;
+  --ion-color-cypressranch-colorB-contrast-rgb: 255, 255, 255;
+  --ion-color-cypressranch-colorB-shade: #252525;
+  --ion-color-cypressranch-colorB-tint: #3f3f3f;
+  --ion-color-cypressranch-colorC: #f6de23;
+  --ion-color-cypressranch-colorC-rgb: 246, 222, 35;
+  --ion-color-cypressranch-colorC-contrast: #ffffff;
+  --ion-color-cypressranch-colorC-contrast-rgb: 255, 255, 255;
+  --ion-color-cypressranch-colorC-shade: #dddddd;
+  --ion-color-cypressranch-colorC-tint: #f6f6f6;
+  --ion-color-cypressridge-colorA: #02008b;
+  --ion-color-cypressridge-colorA-rgb: 2, 0, 139;
+  --ion-color-cypressridge-colorA-contrast: #ffffff;
+  --ion-color-cypressridge-colorA-contrast-rgb: 255, 255, 255;
+  --ion-color-cypressridge-colorA-shade: #010101;
+  --ion-color-cypressridge-colorA-tint: #1b1b1b;
+  --ion-color-cypressridge-colorB: #0300be;
+  --ion-color-cypressridge-colorB-rgb: 3, 0, 190;
+  --ion-color-cypressridge-colorB-contrast: #ffffff;
+  --ion-color-cypressridge-colorB-contrast-rgb: 255, 255, 255;
+  --ion-color-cypressridge-colorB-shade: #020202;
+  --ion-color-cypressridge-colorB-tint: #1c1c1c;
+  --ion-color-cypressridge-colorC: #010062;
+  --ion-color-cypressridge-colorC-rgb: 1, 0, 98;
+  --ion-color-cypressridge-colorC-contrast: #ffffff;
+  --ion-color-cypressridge-colorC-contrast-rgb: 255, 255, 255;
+  --ion-color-cypressridge-colorC-shade: #000000;
+  --ion-color-cypressridge-colorC-tint: #1a1a1a;
+  --ion-color-cypresssprings-colorA: #003876;
+  --ion-color-cypresssprings-colorA-rgb: 0, 56, 118;
+  --ion-color-cypresssprings-colorA-contrast: #ffffff;
+  --ion-color-cypresssprings-colorA-contrast-rgb: 255, 255, 255;
+  --ion-color-cypresssprings-colorA-shade: #000000;
+  --ion-color-cypresssprings-colorA-tint: #191919;
+  --ion-color-cypresssprings-colorB: #0050a9;
+  --ion-color-cypresssprings-colorB-rgb: 0, 80, 169;
+  --ion-color-cypresssprings-colorB-contrast: #ffffff;
+  --ion-color-cypresssprings-colorB-contrast-rgb: 255, 255, 255;
+  --ion-color-cypresssprings-colorB-shade: #000000;
+  --ion-color-cypresssprings-colorB-tint: #191919;
+  --ion-color-cypresssprings-colorC: #cd1041;
+  --ion-color-cypresssprings-colorC-rgb: 205, 16, 65;
+  --ion-color-cypresssprings-colorC-contrast: #ffffff;
+  --ion-color-cypresssprings-colorC-contrast-rgb: 255, 255, 255;
+  --ion-color-cypresssprings-colorC-shade: #b8b8b8;
+  --ion-color-cypresssprings-colorC-tint: #d2d2d2;
+  --ion-color-cypresswoods-colorA: #6a0000;
+  --ion-color-cypresswoods-colorA-rgb: 106, 0, 0;
+  --ion-color-cypresswoods-colorA-contrast: #ffffff;
+  --ion-color-cypresswoods-colorA-contrast-rgb: 255, 255, 255;
+  --ion-color-cypresswoods-colorA-shade: #5f5f5f;
+  --ion-color-cypresswoods-colorA-tint: #787878;
+  --ion-color-cypresswoods-colorB: #9d0000;
+  --ion-color-cypresswoods-colorB-rgb: 157, 0, 0;
+  --ion-color-cypresswoods-colorB-contrast: #ffffff;
+  --ion-color-cypresswoods-colorB-contrast-rgb: 255, 255, 255;
+  --ion-color-cypresswoods-colorB-shade: #8d8d8d;
+  --ion-color-cypresswoods-colorB-tint: #a6a6a6;
+  --ion-color-cypresswoods-colorC: #c1a300;
+  --ion-color-cypresswoods-colorC-rgb: 193, 163, 0;
+  --ion-color-cypresswoods-colorC-contrast: #ffffff;
+  --ion-color-cypresswoods-colorC-contrast-rgb: 255, 255, 255;
+  --ion-color-cypresswoods-colorC-shade: #adadad;
+  --ion-color-cypresswoods-colorC-tint: #c7c7c7;
+  --ion-color-jerseyvillage-colorA: #4d2d7a;
+  --ion-color-jerseyvillage-colorA-rgb: 77, 45, 122;
+  --ion-color-jerseyvillage-colorA-contrast: #ffffff;
+  --ion-color-jerseyvillage-colorA-contrast-rgb: 255, 255, 255;
+  --ion-color-jerseyvillage-colorA-shade: #454545;
+  --ion-color-jerseyvillage-colorA-tint: #5e5e5e;
+  --ion-color-jerseyvillage-colorB: #653b9f;
+  --ion-color-jerseyvillage-colorB-rgb: 101, 59, 159;
+  --ion-color-jerseyvillage-colorB-contrast: #ffffff;
+  --ion-color-jerseyvillage-colorB-contrast-rgb: 255, 255, 255;
+  --ion-color-jerseyvillage-colorB-shade: #5a5a5a;
+  --ion-color-jerseyvillage-colorB-tint: #747474;
+  --ion-color-jerseyvillage-colorC: #a5a5a5;
+  --ion-color-jerseyvillage-colorC-rgb: 165, 165, 165;
+  --ion-color-jerseyvillage-colorC-contrast: #ffffff;
+  --ion-color-jerseyvillage-colorC-contrast-rgb: 255, 255, 255;
+  --ion-color-jerseyvillage-colorC-shade: #949494;
+  --ion-color-jerseyvillage-colorC-tint: #aeaeae;
+  --ion-color-langhamcreek-colorA: #9d1e1e;
+  --ion-color-langhamcreek-colorA-rgb: 157, 30, 30;
+  --ion-color-langhamcreek-colorA-contrast: #ffffff;
+  --ion-color-langhamcreek-colorA-contrast-rgb: 255, 255, 255;
+  --ion-color-langhamcreek-colorA-shade: #8d8d8d;
+  --ion-color-langhamcreek-colorA-tint: #a6a6a6;
+  --ion-color-langhamcreek-colorB: #d73030;
+  --ion-color-langhamcreek-colorB-rgb: 215, 48, 48;
+  --ion-color-langhamcreek-colorB-contrast: #ffffff;
+  --ion-color-langhamcreek-colorB-contrast-rgb: 255, 255, 255;
+  --ion-color-langhamcreek-colorB-shade: #c1c1c1;
+  --ion-color-langhamcreek-colorB-tint: #dbdbdb;
+  --ion-color-langhamcreek-colorC: #111111;
+  --ion-color-langhamcreek-colorC-rgb: 17, 17, 17;
+  --ion-color-langhamcreek-colorC-contrast: #ffffff;
+  --ion-color-langhamcreek-colorC-contrast-rgb: 255, 255, 255;
+  --ion-color-langhamcreek-colorC-shade: #0f0f0f;
+  --ion-color-langhamcreek-colorC-tint: #282828;
+  --ion-color-windfernschoolofchoice-colorA: #4e70c0;
+  --ion-color-windfernschoolofchoice-colorA-rgb: 78, 112, 192;
+  --ion-color-windfernschoolofchoice-colorA-contrast: #ffffff;
+  --ion-color-windfernschoolofchoice-colorA-contrast-rgb: 255, 255, 255;
+  --ion-color-windfernschoolofchoice-colorA-shade: #464646;
+  --ion-color-windfernschoolofchoice-colorA-tint: #5f5f5f;
+  --ion-color-windfernschoolofchoice-colorB: #748ecd;
+  --ion-color-windfernschoolofchoice-colorB-rgb: 116, 142, 205;
+  --ion-color-windfernschoolofchoice-colorB-contrast: #ffffff;
+  --ion-color-windfernschoolofchoice-colorB-contrast-rgb: 255, 255, 255;
+  --ion-color-windfernschoolofchoice-colorB-shade: #686868;
+  --ion-color-windfernschoolofchoice-colorB-tint: #818181;
+  --ion-color-windfernschoolofchoice-colorC: #4e4d52;
+  --ion-color-windfernschoolofchoice-colorC-rgb: 78, 77, 82;
+  --ion-color-windfernschoolofchoice-colorC-contrast: #ffffff;
+  --ion-color-windfernschoolofchoice-colorC-contrast-rgb: 255, 255, 255;
+  --ion-color-windfernschoolofchoice-colorC-shade: #464646;
+  --ion-color-windfernschoolofchoice-colorC-tint: #5f5f5f;
+
+}
+
+.ion-color-bridgeland-colorA {
+  --ion-color-base: var(--ion-color-bridgeland-colorA) !important;
+  --ion-color-base-rgb: var(--ion-color-bridgeland-colorA-rgb) !important;
+  --ion-color-contrast: var(--ion-color-bridgeland-colorA-contrast) !important;
+  --ion-color-contrast-rgb: var(--ion-color-bridgeland-colorA-contrast-rgb) !important;
+  --ion-color-shade: var(--ion-color-bridgeland-colorA-shade) !important;
+  --ion-color-tint: var(--ion-color-bridgeland-colorA-tint) !important;
+}
+.ion-color-bridgeland-colorB {
+  --ion-color-base: var(--ion-color-bridgeland-colorB) !important;
+  --ion-color-base-rgb: var(--ion-color-bridgeland-colorB-rgb) !important;
+  --ion-color-contrast: var(--ion-color-bridgeland-colorB-contrast) !important;
+  --ion-color-contrast-rgb: var(--ion-color-bridgeland-colorB-contrast-rgb) !important;
+  --ion-color-shade: var(--ion-color-bridgeland-colorB-shade) !important;
+  --ion-color-tint: var(--ion-color-bridgeland-colorB-tint) !important;
+}
+.ion-color-bridgeland-colorC {
+  --ion-color-base: var(--ion-color-bridgeland-colorC) !important;
+  --ion-color-base-rgb: var(--ion-color-bridgeland-colorC-rgb) !important;
+  --ion-color-contrast: var(--ion-color-bridgeland-colorC-contrast) !important;
+  --ion-color-contrast-rgb: var(--ion-color-bridgeland-colorC-contrast-rgb) !important;
+  --ion-color-shade: var(--ion-color-bridgeland-colorC-shade) !important;
+  --ion-color-tint: var(--ion-color-bridgeland-colorC-tint) !important;
+}
+.ion-color-cyfair-colorA {
+  --ion-color-base: var(--ion-color-cyfair-colorA) !important;
+  --ion-color-base-rgb: var(--ion-color-cyfair-colorA-rgb) !important;
+  --ion-color-contrast: var(--ion-color-cyfair-colorA-contrast) !important;
+  --ion-color-contrast-rgb: var(--ion-color-cyfair-colorA-contrast-rgb) !important;
+  --ion-color-shade: var(--ion-color-cyfair-colorA-shade) !important;
+  --ion-color-tint: var(--ion-color-cyfair-colorA-tint) !important;
+}
+.ion-color-cyfair-colorB {
+  --ion-color-base: var(--ion-color-cyfair-colorB) !important;
+  --ion-color-base-rgb: var(--ion-color-cyfair-colorB-rgb) !important;
+  --ion-color-contrast: var(--ion-color-cyfair-colorB-contrast) !important;
+  --ion-color-contrast-rgb: var(--ion-color-cyfair-colorB-contrast-rgb) !important;
+  --ion-color-shade: var(--ion-color-cyfair-colorB-shade) !important;
+  --ion-color-tint: var(--ion-color-cyfair-colorB-tint) !important;
+}
+.ion-color-cyfair-colorC {
+  --ion-color-base: var(--ion-color-cyfair-colorC) !important;
+  --ion-color-base-rgb: var(--ion-color-cyfair-colorC-rgb) !important;
+  --ion-color-contrast: var(--ion-color-cyfair-colorC-contrast) !important;
+  --ion-color-contrast-rgb: var(--ion-color-cyfair-colorC-contrast-rgb) !important;
+  --ion-color-shade: var(--ion-color-cyfair-colorC-shade) !important;
+  --ion-color-tint: var(--ion-color-cyfair-colorC-tint) !important;
+}
+.ion-color-cypresscreek-colorA {
+  --ion-color-base: var(--ion-color-cypresscreek-colorA) !important;
+  --ion-color-base-rgb: var(--ion-color-cypresscreek-colorA-rgb) !important;
+  --ion-color-contrast: var(--ion-color-cypresscreek-colorA-contrast) !important;
+  --ion-color-contrast-rgb: var(--ion-color-cypresscreek-colorA-contrast-rgb) !important;
+  --ion-color-shade: var(--ion-color-cypresscreek-colorA-shade) !important;
+  --ion-color-tint: var(--ion-color-cypresscreek-colorA-tint) !important;
+}
+.ion-color-cypresscreek-colorB {
+  --ion-color-base: var(--ion-color-cypresscreek-colorB) !important;
+  --ion-color-base-rgb: var(--ion-color-cypresscreek-colorB-rgb) !important;
+  --ion-color-contrast: var(--ion-color-cypresscreek-colorB-contrast) !important;
+  --ion-color-contrast-rgb: var(--ion-color-cypresscreek-colorB-contrast-rgb) !important;
+  --ion-color-shade: var(--ion-color-cypresscreek-colorB-shade) !important;
+  --ion-color-tint: var(--ion-color-cypresscreek-colorB-tint) !important;
+}
+.ion-color-cypresscreek-colorC {
+  --ion-color-base: var(--ion-color-cypresscreek-colorC) !important;
+  --ion-color-base-rgb: var(--ion-color-cypresscreek-colorC-rgb) !important;
+  --ion-color-contrast: var(--ion-color-cypresscreek-colorC-contrast) !important;
+  --ion-color-contrast-rgb: var(--ion-color-cypresscreek-colorC-contrast-rgb) !important;
+  --ion-color-shade: var(--ion-color-cypresscreek-colorC-shade) !important;
+  --ion-color-tint: var(--ion-color-cypresscreek-colorC-tint) !important;
+}
+.ion-color-cypressfalls-colorA {
+  --ion-color-base: var(--ion-color-cypressfalls-colorA) !important;
+  --ion-color-base-rgb: var(--ion-color-cypressfalls-colorA-rgb) !important;
+  --ion-color-contrast: var(--ion-color-cypressfalls-colorA-contrast) !important;
+  --ion-color-contrast-rgb: var(--ion-color-cypressfalls-colorA-contrast-rgb) !important;
+  --ion-color-shade: var(--ion-color-cypressfalls-colorA-shade) !important;
+  --ion-color-tint: var(--ion-color-cypressfalls-colorA-tint) !important;
+}
+.ion-color-cypressfalls-colorB {
+  --ion-color-base: var(--ion-color-cypressfalls-colorB) !important;
+  --ion-color-base-rgb: var(--ion-color-cypressfalls-colorB-rgb) !important;
+  --ion-color-contrast: var(--ion-color-cypressfalls-colorB-contrast) !important;
+  --ion-color-contrast-rgb: var(--ion-color-cypressfalls-colorB-contrast-rgb) !important;
+  --ion-color-shade: var(--ion-color-cypressfalls-colorB-shade) !important;
+  --ion-color-tint: var(--ion-color-cypressfalls-colorB-tint) !important;
+}
+.ion-color-cypressfalls-colorC {
+  --ion-color-base: var(--ion-color-cypressfalls-colorC) !important;
+  --ion-color-base-rgb: var(--ion-color-cypressfalls-colorC-rgb) !important;
+  --ion-color-contrast: var(--ion-color-cypressfalls-colorC-contrast) !important;
+  --ion-color-contrast-rgb: var(--ion-color-cypressfalls-colorC-contrast-rgb) !important;
+  --ion-color-shade: var(--ion-color-cypressfalls-colorC-shade) !important;
+  --ion-color-tint: var(--ion-color-cypressfalls-colorC-tint) !important;
+}
+.ion-color-cypresslakes-colorA {
+  --ion-color-base: var(--ion-color-cypresslakes-colorA) !important;
+  --ion-color-base-rgb: var(--ion-color-cypresslakes-colorA-rgb) !important;
+  --ion-color-contrast: var(--ion-color-cypresslakes-colorA-contrast) !important;
+  --ion-color-contrast-rgb: var(--ion-color-cypresslakes-colorA-contrast-rgb) !important;
+  --ion-color-shade: var(--ion-color-cypresslakes-colorA-shade) !important;
+  --ion-color-tint: var(--ion-color-cypresslakes-colorA-tint) !important;
+}
+.ion-color-cypresslakes-colorB {
+  --ion-color-base: var(--ion-color-cypresslakes-colorB) !important;
+  --ion-color-base-rgb: var(--ion-color-cypresslakes-colorB-rgb) !important;
+  --ion-color-contrast: var(--ion-color-cypresslakes-colorB-contrast) !important;
+  --ion-color-contrast-rgb: var(--ion-color-cypresslakes-colorB-contrast-rgb) !important;
+  --ion-color-shade: var(--ion-color-cypresslakes-colorB-shade) !important;
+  --ion-color-tint: var(--ion-color-cypresslakes-colorB-tint) !important;
+}
+.ion-color-cypresslakes-colorC {
+  --ion-color-base: var(--ion-color-cypresslakes-colorC) !important;
+  --ion-color-base-rgb: var(--ion-color-cypresslakes-colorC-rgb) !important;
+  --ion-color-contrast: var(--ion-color-cypresslakes-colorC-contrast) !important;
+  --ion-color-contrast-rgb: var(--ion-color-cypresslakes-colorC-contrast-rgb) !important;
+  --ion-color-shade: var(--ion-color-cypresslakes-colorC-shade) !important;
+  --ion-color-tint: var(--ion-color-cypresslakes-colorC-tint) !important;
+}
+.ion-color-cypresspark-colorA {
+  --ion-color-base: var(--ion-color-cypresspark-colorA) !important;
+  --ion-color-base-rgb: var(--ion-color-cypresspark-colorA-rgb) !important;
+  --ion-color-contrast: var(--ion-color-cypresspark-colorA-contrast) !important;
+  --ion-color-contrast-rgb: var(--ion-color-cypresspark-colorA-contrast-rgb) !important;
+  --ion-color-shade: var(--ion-color-cypresspark-colorA-shade) !important;
+  --ion-color-tint: var(--ion-color-cypresspark-colorA-tint) !important;
+}
+.ion-color-cypresspark-colorB {
+  --ion-color-base: var(--ion-color-cypresspark-colorB) !important;
+  --ion-color-base-rgb: var(--ion-color-cypresspark-colorB-rgb) !important;
+  --ion-color-contrast: var(--ion-color-cypresspark-colorB-contrast) !important;
+  --ion-color-contrast-rgb: var(--ion-color-cypresspark-colorB-contrast-rgb) !important;
+  --ion-color-shade: var(--ion-color-cypresspark-colorB-shade) !important;
+  --ion-color-tint: var(--ion-color-cypresspark-colorB-tint) !important;
+}
+.ion-color-cypresspark-colorC {
+  --ion-color-base: var(--ion-color-cypresspark-colorC) !important;
+  --ion-color-base-rgb: var(--ion-color-cypresspark-colorC-rgb) !important;
+  --ion-color-contrast: var(--ion-color-cypresspark-colorC-contrast) !important;
+  --ion-color-contrast-rgb: var(--ion-color-cypresspark-colorC-contrast-rgb) !important;
+  --ion-color-shade: var(--ion-color-cypresspark-colorC-shade) !important;
+  --ion-color-tint: var(--ion-color-cypresspark-colorC-tint) !important;
+}
+.ion-color-cypressranch-colorA {
+  --ion-color-base: var(--ion-color-cypressranch-colorA) !important;
+  --ion-color-base-rgb: var(--ion-color-cypressranch-colorA-rgb) !important;
+  --ion-color-contrast: var(--ion-color-cypressranch-colorA-contrast) !important;
+  --ion-color-contrast-rgb: var(--ion-color-cypressranch-colorA-contrast-rgb) !important;
+  --ion-color-shade: var(--ion-color-cypressranch-colorA-shade) !important;
+  --ion-color-tint: var(--ion-color-cypressranch-colorA-tint) !important;
+}
+.ion-color-cypressranch-colorB {
+  --ion-color-base: var(--ion-color-cypressranch-colorB) !important;
+  --ion-color-base-rgb: var(--ion-color-cypressranch-colorB-rgb) !important;
+  --ion-color-contrast: var(--ion-color-cypressranch-colorB-contrast) !important;
+  --ion-color-contrast-rgb: var(--ion-color-cypressranch-colorB-contrast-rgb) !important;
+  --ion-color-shade: var(--ion-color-cypressranch-colorB-shade) !important;
+  --ion-color-tint: var(--ion-color-cypressranch-colorB-tint) !important;
+}
+.ion-color-cypressranch-colorC {
+  --ion-color-base: var(--ion-color-cypressranch-colorC) !important;
+  --ion-color-base-rgb: var(--ion-color-cypressranch-colorC-rgb) !important;
+  --ion-color-contrast: var(--ion-color-cypressranch-colorC-contrast) !important;
+  --ion-color-contrast-rgb: var(--ion-color-cypressranch-colorC-contrast-rgb) !important;
+  --ion-color-shade: var(--ion-color-cypressranch-colorC-shade) !important;
+  --ion-color-tint: var(--ion-color-cypressranch-colorC-tint) !important;
+}
+.ion-color-cypressridge-colorA {
+  --ion-color-base: var(--ion-color-cypressridge-colorA) !important;
+  --ion-color-base-rgb: var(--ion-color-cypressridge-colorA-rgb) !important;
+  --ion-color-contrast: var(--ion-color-cypressridge-colorA-contrast) !important;
+  --ion-color-contrast-rgb: var(--ion-color-cypressridge-colorA-contrast-rgb) !important;
+  --ion-color-shade: var(--ion-color-cypressridge-colorA-shade) !important;
+  --ion-color-tint: var(--ion-color-cypressridge-colorA-tint) !important;
+}
+.ion-color-cypressridge-colorB {
+  --ion-color-base: var(--ion-color-cypressridge-colorB) !important;
+  --ion-color-base-rgb: var(--ion-color-cypressridge-colorB-rgb) !important;
+  --ion-color-contrast: var(--ion-color-cypressridge-colorB-contrast) !important;
+  --ion-color-contrast-rgb: var(--ion-color-cypressridge-colorB-contrast-rgb) !important;
+  --ion-color-shade: var(--ion-color-cypressridge-colorB-shade) !important;
+  --ion-color-tint: var(--ion-color-cypressridge-colorB-tint) !important;
+}
+.ion-color-cypressridge-colorC {
+  --ion-color-base: var(--ion-color-cypressridge-colorC) !important;
+  --ion-color-base-rgb: var(--ion-color-cypressridge-colorC-rgb) !important;
+  --ion-color-contrast: var(--ion-color-cypressridge-colorC-contrast) !important;
+  --ion-color-contrast-rgb: var(--ion-color-cypressridge-colorC-contrast-rgb) !important;
+  --ion-color-shade: var(--ion-color-cypressridge-colorC-shade) !important;
+  --ion-color-tint: var(--ion-color-cypressridge-colorC-tint) !important;
+}
+.ion-color-cypresssprings-colorA {
+  --ion-color-base: var(--ion-color-cypresssprings-colorA) !important;
+  --ion-color-base-rgb: var(--ion-color-cypresssprings-colorA-rgb) !important;
+  --ion-color-contrast: var(--ion-color-cypresssprings-colorA-contrast) !important;
+  --ion-color-contrast-rgb: var(--ion-color-cypresssprings-colorA-contrast-rgb) !important;
+  --ion-color-shade: var(--ion-color-cypresssprings-colorA-shade) !important;
+  --ion-color-tint: var(--ion-color-cypresssprings-colorA-tint) !important;
+}
+.ion-color-cypresssprings-colorB {
+  --ion-color-base: var(--ion-color-cypresssprings-colorB) !important;
+  --ion-color-base-rgb: var(--ion-color-cypresssprings-colorB-rgb) !important;
+  --ion-color-contrast: var(--ion-color-cypresssprings-colorB-contrast) !important;
+  --ion-color-contrast-rgb: var(--ion-color-cypresssprings-colorB-contrast-rgb) !important;
+  --ion-color-shade: var(--ion-color-cypresssprings-colorB-shade) !important;
+  --ion-color-tint: var(--ion-color-cypresssprings-colorB-tint) !important;
+}
+.ion-color-cypresssprings-colorC {
+  --ion-color-base: var(--ion-color-cypresssprings-colorC) !important;
+  --ion-color-base-rgb: var(--ion-color-cypresssprings-colorC-rgb) !important;
+  --ion-color-contrast: var(--ion-color-cypresssprings-colorC-contrast) !important;
+  --ion-color-contrast-rgb: var(--ion-color-cypresssprings-colorC-contrast-rgb) !important;
+  --ion-color-shade: var(--ion-color-cypresssprings-colorC-shade) !important;
+  --ion-color-tint: var(--ion-color-cypresssprings-colorC-tint) !important;
+}
+.ion-color-cypresswoods-colorA {
+  --ion-color-base: var(--ion-color-cypresswoods-colorA) !important;
+  --ion-color-base-rgb: var(--ion-color-cypresswoods-colorA-rgb) !important;
+  --ion-color-contrast: var(--ion-color-cypresswoods-colorA-contrast) !important;
+  --ion-color-contrast-rgb: var(--ion-color-cypresswoods-colorA-contrast-rgb) !important;
+  --ion-color-shade: var(--ion-color-cypresswoods-colorA-shade) !important;
+  --ion-color-tint: var(--ion-color-cypresswoods-colorA-tint) !important;
+}
+.ion-color-cypresswoods-colorB {
+  --ion-color-base: var(--ion-color-cypresswoods-colorB) !important;
+  --ion-color-base-rgb: var(--ion-color-cypresswoods-colorB-rgb) !important;
+  --ion-color-contrast: var(--ion-color-cypresswoods-colorB-contrast) !important;
+  --ion-color-contrast-rgb: var(--ion-color-cypresswoods-colorB-contrast-rgb) !important;
+  --ion-color-shade: var(--ion-color-cypresswoods-colorB-shade) !important;
+  --ion-color-tint: var(--ion-color-cypresswoods-colorB-tint) !important;
+}
+.ion-color-cypresswoods-colorC {
+  --ion-color-base: var(--ion-color-cypresswoods-colorC) !important;
+  --ion-color-base-rgb: var(--ion-color-cypresswoods-colorC-rgb) !important;
+  --ion-color-contrast: var(--ion-color-cypresswoods-colorC-contrast) !important;
+  --ion-color-contrast-rgb: var(--ion-color-cypresswoods-colorC-contrast-rgb) !important;
+  --ion-color-shade: var(--ion-color-cypresswoods-colorC-shade) !important;
+  --ion-color-tint: var(--ion-color-cypresswoods-colorC-tint) !important;
+}
+.ion-color-jerseyvillage-colorA {
+  --ion-color-base: var(--ion-color-jerseyvillage-colorA) !important;
+  --ion-color-base-rgb: var(--ion-color-jerseyvillage-colorA-rgb) !important;
+  --ion-color-contrast: var(--ion-color-jerseyvillage-colorA-contrast) !important;
+  --ion-color-contrast-rgb: var(--ion-color-jerseyvillage-colorA-contrast-rgb) !important;
+  --ion-color-shade: var(--ion-color-jerseyvillage-colorA-shade) !important;
+  --ion-color-tint: var(--ion-color-jerseyvillage-colorA-tint) !important;
+}
+.ion-color-jerseyvillage-colorB {
+  --ion-color-base: var(--ion-color-jerseyvillage-colorB) !important;
+  --ion-color-base-rgb: var(--ion-color-jerseyvillage-colorB-rgb) !important;
+  --ion-color-contrast: var(--ion-color-jerseyvillage-colorB-contrast) !important;
+  --ion-color-contrast-rgb: var(--ion-color-jerseyvillage-colorB-contrast-rgb) !important;
+  --ion-color-shade: var(--ion-color-jerseyvillage-colorB-shade) !important;
+  --ion-color-tint: var(--ion-color-jerseyvillage-colorB-tint) !important;
+}
+.ion-color-jerseyvillage-colorC {
+  --ion-color-base: var(--ion-color-jerseyvillage-colorC) !important;
+  --ion-color-base-rgb: var(--ion-color-jerseyvillage-colorC-rgb) !important;
+  --ion-color-contrast: var(--ion-color-jerseyvillage-colorC-contrast) !important;
+  --ion-color-contrast-rgb: var(--ion-color-jerseyvillage-colorC-contrast-rgb) !important;
+  --ion-color-shade: var(--ion-color-jerseyvillage-colorC-shade) !important;
+  --ion-color-tint: var(--ion-color-jerseyvillage-colorC-tint) !important;
+}
+.ion-color-langhamcreek-colorA {
+  --ion-color-base: var(--ion-color-langhamcreek-colorA) !important;
+  --ion-color-base-rgb: var(--ion-color-langhamcreek-colorA-rgb) !important;
+  --ion-color-contrast: var(--ion-color-langhamcreek-colorA-contrast) !important;
+  --ion-color-contrast-rgb: var(--ion-color-langhamcreek-colorA-contrast-rgb) !important;
+  --ion-color-shade: var(--ion-color-langhamcreek-colorA-shade) !important;
+  --ion-color-tint: var(--ion-color-langhamcreek-colorA-tint) !important;
+}
+.ion-color-langhamcreek-colorB {
+  --ion-color-base: var(--ion-color-langhamcreek-colorB) !important;
+  --ion-color-base-rgb: var(--ion-color-langhamcreek-colorB-rgb) !important;
+  --ion-color-contrast: var(--ion-color-langhamcreek-colorB-contrast) !important;
+  --ion-color-contrast-rgb: var(--ion-color-langhamcreek-colorB-contrast-rgb) !important;
+  --ion-color-shade: var(--ion-color-langhamcreek-colorB-shade) !important;
+  --ion-color-tint: var(--ion-color-langhamcreek-colorB-tint) !important;
+}
+.ion-color-langhamcreek-colorC {
+  --ion-color-base: var(--ion-color-langhamcreek-colorC) !important;
+  --ion-color-base-rgb: var(--ion-color-langhamcreek-colorC-rgb) !important;
+  --ion-color-contrast: var(--ion-color-langhamcreek-colorC-contrast) !important;
+  --ion-color-contrast-rgb: var(--ion-color-langhamcreek-colorC-contrast-rgb) !important;
+  --ion-color-shade: var(--ion-color-langhamcreek-colorC-shade) !important;
+  --ion-color-tint: var(--ion-color-langhamcreek-colorC-tint) !important;
+}
+.ion-color-windfernschoolofchoice-colorA {
+  --ion-color-base: var(--ion-color-windfernschoolofchoice-colorA) !important;
+  --ion-color-base-rgb: var(--ion-color-windfernschoolofchoice-colorA-rgb) !important;
+  --ion-color-contrast: var(--ion-color-windfernschoolofchoice-colorA-contrast) !important;
+  --ion-color-contrast-rgb: var(--ion-color-windfernschoolofchoice-colorA-contrast-rgb) !important;
+  --ion-color-shade: var(--ion-color-windfernschoolofchoice-colorA-shade) !important;
+  --ion-color-tint: var(--ion-color-windfernschoolofchoice-colorA-tint) !important;
+}
+.ion-color-windfernschoolofchoice-colorB {
+  --ion-color-base: var(--ion-color-windfernschoolofchoice-colorB) !important;
+  --ion-color-base-rgb: var(--ion-color-windfernschoolofchoice-colorB-rgb) !important;
+  --ion-color-contrast: var(--ion-color-windfernschoolofchoice-colorB-contrast) !important;
+  --ion-color-contrast-rgb: var(--ion-color-windfernschoolofchoice-colorB-contrast-rgb) !important;
+  --ion-color-shade: var(--ion-color-windfernschoolofchoice-colorB-shade) !important;
+  --ion-color-tint: var(--ion-color-windfernschoolofchoice-colorB-tint) !important;
+}
+.ion-color-windfernschoolofchoice-colorC {
+  --ion-color-base: var(--ion-color-windfernschoolofchoice-colorC) !important;
+  --ion-color-base-rgb: var(--ion-color-windfernschoolofchoice-colorC-rgb) !important;
+  --ion-color-contrast: var(--ion-color-windfernschoolofchoice-colorC-contrast) !important;
+  --ion-color-contrast-rgb: var(--ion-color-windfernschoolofchoice-colorC-contrast-rgb) !important;
+  --ion-color-shade: var(--ion-color-windfernschoolofchoice-colorC-shade) !important;
+  --ion-color-tint: var(--ion-color-windfernschoolofchoice-colorC-tint) !important;
 }
