@@ -9,9 +9,10 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
-import { HTTP } from '@ionic-native/http/ngx';
+import { HttpModule } from '@angular/http';
 import { IonicStorageModule } from '@ionic/storage';
 import { AdMobFree } from '@ionic-native/admob-free/ngx';
+import { SchoolService } from './cfisd';
 
 @NgModule({
   declarations: [AppComponent],
@@ -20,13 +21,14 @@ import { AdMobFree } from '@ionic-native/admob-free/ngx';
     BrowserModule,
     IonicModule.forRoot(),
     IonicStorageModule.forRoot(),
-    AppRoutingModule
+    AppRoutingModule,
+    HttpModule
   ],
   providers: [
     StatusBar,
     SplashScreen,
     AdMobFree,
-    HTTP,
+    SchoolService,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
   ],
   bootstrap: [AppComponent]
