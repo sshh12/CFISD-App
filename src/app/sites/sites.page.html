@@ -1,41 +1,91 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>
-      Sites
-    </ion-title>
+
+  <ion-toolbar color='{{schoolServ.school.colorA}}'>
+    <ion-title>Sites</ion-title>
   </ion-toolbar>
+
+  <!-- Tiplined Button -->
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed" edge>
+      <ion-fab-button mini color="danger" (click)="openWebsite('https://www.p3tips.com/tipform.aspx?ID=242')"><ion-icon name="warning"></ion-icon></ion-fab-button>
+  </ion-fab>
+
 </ion-header>
 
 <ion-content>
-    <ion-card class="welcome-card">
-      <ion-img src="/assets/shapes.svg"></ion-img>
-      <ion-card-header>
-        <ion-card-subtitle>Get Started</ion-card-subtitle>
-        <ion-card-title>Welcome to Ionic</ion-card-title>
-      </ion-card-header>
-      <ion-card-content>
-        <p>Now that your app has been created, you'll want to start building out features and components. Check out some of the resources below for next steps.</p>
-      </ion-card-content>
-    </ion-card>
-    <ion-list lines="none">
-      <ion-list-header>
-        <ion-label>Resources</ion-label>
-      </ion-list-header>
-      <ion-item href="https://beta.ionicframework.com/docs/">
-        <ion-icon slot="start" color="medium" name="book"></ion-icon>
-        <ion-label>Ionic Documentation</ion-label>
-      </ion-item>
-      <ion-item href="https://beta.ionicframework.com/docs/building/scaffolding">
-        <ion-icon slot="start" color="medium" name="build"></ion-icon>
-        <ion-label>Scaffold Out Your App</ion-label>
-      </ion-item>
-      <ion-item href="https://beta.ionicframework.com/docs/layout/structure">
-        <ion-icon slot="start" color="medium" name="grid"></ion-icon>
-        <ion-label>Change Your App Layout</ion-label>
-      </ion-item>
-      <ion-item href="https://beta.ionicframework.com/docs/theming/basics">
-        <ion-icon slot="start" color="medium" name="color-fill"></ion-icon>
-        <ion-label>Theme Your App</ion-label>
-      </ion-item>
-    </ion-list>
+
+    <!-- Search -->
+    <ion-searchbar (ionInput)="onSearch($event)" (ionCancel)="onCancel($event)" slot="fixed">
+    </ion-searchbar>
+
+    <!-- General Info/Websites -->
+    <ion-item-group class="general-group" *ngIf="showGeneral">
+
+        <ion-item-divider color="light">General</ion-item-divider>
+
+        <ion-list>
+
+            <ion-item>
+              <ion-label>
+                <ion-text>
+                  {{ schoolServ.school.name }}
+                  <p (click)="openWebsite('https://cyranch.cfisd.net/en/')">{{schoolServ.school.website}}</p>
+                </ion-text>
+              </ion-label>
+            </ion-item>
+
+            <ion-item>
+              <ion-label>
+                <ion-text>
+                  Google Classroom
+                  <p (click)="openWebsite('https://classroom.google.com/')">classroom.google.com</p>
+                </ion-text>
+              </ion-label>
+            </ion-item>
+
+            <ion-item>
+              <ion-label>
+                <ion-text>
+                  School Cash Online
+                  <p (click)="openWebsite('https://cypress-fairbanksisd.schoolcashonline.com/')">schoolcashonline.com</p>
+                </ion-text>
+              </ion-label>
+            </ion-item>
+
+            <ion-item (click)="switchSchool()">
+              <ion-label>
+                <ion-text>
+                  Edit School
+                  <p>Switch from {{schoolServ.school.name}}</p>
+                </ion-text>
+              </ion-label>
+            </ion-item>
+
+        </ion-list>
+
+    </ion-item-group>
+
+    <!-- Teachers -->
+    <div *ngFor="let letter of letters">
+
+        <ion-item-group *ngIf="curTeachers[letter] && curTeachers[letter].length > 0">
+
+            <ion-item-divider color="light">{{ letter }}</ion-item-divider>
+            <ion-list>
+                <ion-item-sliding *ngFor="let teacher of curTeachers[letter]">
+                    <ion-item>
+                        <ion-label>
+                          {{ teacher.name }}
+                          <p *ngIf="teacher.website != null" (click)="openWebsite(teacher.website)">{{ cleanWebsite(teacher) }}</p>
+                        </ion-label>
+                    </ion-item>
+                    <ion-item-options side="end">
+                        <ion-button color="primary" (click)="emailTeacher(teacher)"><ion-icon name="mail"></ion-icon></ion-button>
+                    </ion-item-options>
+                </ion-item-sliding>
+            </ion-list>
+
+        </ion-item-group>
+
+    </div>
+
 </ion-content>
