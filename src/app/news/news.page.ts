@@ -1,9 +1,7 @@
 import { Component } from '@angular/core';
 
 import {
-  Platform,
   Events,
-  AlertController,
   ToastController
 } from '@ionic/angular';
 

@@ -78,7 +78,12 @@ def rgb_to_hex(r, g, b):
 
 
 def get_contrast(hex_):
-    return "#ffffff"
+    r, g, b = hex_to_rgb(hex_)
+    luminance = (0.299 * r + 0.587 * g + 0.114 * b) / 255;
+    if luminance > 0.6:
+        return "#181818"
+    else:
+        return "#ffffff"
 
 
 def get_shade(hex_):
@@ -104,6 +109,12 @@ if __name__ == "__main__":
     schools = highschools
 
     colors = {
+        'great': '#4CAF50',
+        'ok': '#FFCA28',
+        'poor': '#673AB7',
+        'zero': '#424242',
+        'none': '#909090',
+        'bad': '#E53935',
         **highschool_colors
     }
 
@@ -115,7 +126,7 @@ if __name__ == "__main__":
 
     with open('colors.scss', 'w') as scss_file:
 
-        scss_file.write('  /** School Themes **/\n')
+        scss_file.write('  /** Custom Colors **/\n')
 
         for name, hex_ in colors.items():
 
