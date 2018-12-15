@@ -1,25 +1,13 @@
 import { Component } from '@angular/core';
-import {
-  Events,
-  AlertController,
-  ToastController
-} from '@ionic/angular';
+import { Events, AlertController, ToastController } from '@ionic/angular';
 import { Storage } from '@ionic/storage';
 import { Http, Headers, RequestOptions } from '@angular/http';
+import { Router, ActivatedRoute } from '@angular/router';
 
 import { SchoolService } from '../cfisd';
 import { Globals } from '../globals';
-import {
-  SubjectGrade,
-  SubjectReportCard,
-  AssignmentGrade
-} from './gradetypes';
-import {
-  getIcon,
-  getColor,
-  getColorRank,
-  timeAgo
-} from './gradeutil';
+import { SubjectGrade, SubjectReportCard, AssignmentGrade } from './gradetypes';
+import { getIcon, getColor, getColorRank, timeAgo } from './gradeutil';
 
 @Component({
   selector: 'app-grades',
@@ -51,6 +39,7 @@ export class GradesPage {
                public alertCtrl: AlertController,
                private http: Http,
                private storage: Storage,
+               public router: Router,
                public schoolServ: SchoolService) {
 
     this.events.subscribe('grades:current', this.onCurrentGrades.bind(this));
@@ -315,6 +304,10 @@ export class GradesPage {
       return '-';
     }
     return percent;
+  }
+
+  openLegal(event) {
+    this.router.navigate(['/legal'], {});
   }
 
   async calculate() {
