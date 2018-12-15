@@ -151,7 +151,7 @@ export class GradesPage {
 
     let showToast = async (msg) => {
       let toast = await this.toastCtrl.create({
-        message: 'Your login didn\'t work ðŸ˜ž',
+        message: msg,
         position: 'top',
         duration: 3000
       });
@@ -175,8 +175,6 @@ export class GradesPage {
     let username = await this.storage.get('grades:username');
     let password = await this.storage.get('grades:password');
 
-    this.loading = true;
-
     if (!this.validCreds(username, password)) {
       let toast = await this.toastCtrl.create({
         message: 'Invalid username or password',
@@ -195,6 +193,8 @@ export class GradesPage {
 
     try {
 
+      this.loading = true;
+
       let httpRequest = this.http.post(`${Globals.SERVER}/api/${gradeType}/${username}`, JSON.stringify({ password: password }), options);
       let data = await httpRequest.toPromise();
 
@@ -206,7 +206,7 @@ export class GradesPage {
 
       this.loading = false;
       let toast = await this.toastCtrl.create({
-        message: 'A network error occured ðŸ˜¢',
+        message: 'Unable to connect 😔',
         position: 'top',
         duration: 3000
       });
@@ -339,7 +339,7 @@ export class GradesPage {
       first = false;
     }
 
-    let alert = await this.alertCtrl.create();
+    let alert = await this.alertCtrl.create(alertOptions);
     await alert.present();
 
   }

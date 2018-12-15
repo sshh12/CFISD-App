@@ -16,7 +16,8 @@ import { Http } from '@angular/http';
 })
 export class NewsPage {
 
-  allNews = [];
+  allNews: Array<any> = [];
+  loading: boolean = false;
 
   constructor(public events: Events,
               public toastCtrl: ToastController,
@@ -50,6 +51,7 @@ export class NewsPage {
 
     try {
 
+      this.loading = true;
       let httpRequest = this.http.get(`${Globals.SERVER}/api/news/${this.schoolServ.school.shortname}/all`);
       let data = await httpRequest.toPromise();
 
@@ -65,6 +67,8 @@ export class NewsPage {
       await toast.present();
 
     }
+
+    this.loading = false;
 
   }
 

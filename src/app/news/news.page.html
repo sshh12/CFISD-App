@@ -7,18 +7,24 @@
 <ion-content>
 
   <ion-refresher slot="fixed" (ionRefresh)="refresh($event)">
-    <ion-refresher-content pullingText="Refresh" refreshingSpinner="crescent" refreshingText="Loading...">
+    <ion-refresher-content pullingText="Refresh" refreshingSpinner="crescent" refreshingText="">
     </ion-refresher-content>
   </ion-refresher>
 
   <ion-list>
+
+    <div *ngIf="loading" text-center>
+        <ion-chip>
+            <ion-label>Downloading...</ion-label>
+        </ion-chip>
+    </div>
 
     <div *ngFor="let article of allNews; let i = index">
 
       <ion-card *ngIf="i < 25">
 
         <ion-card-header>
-          <ion-card-title>{{ article.organization }}</ion-card-title>
+          <ion-card-title><h3>{{ article.organization }}</h3></ion-card-title>
           <ion-card-subtitle>{{ article.date }}</ion-card-subtitle>
         </ion-card-header>
 
@@ -29,7 +35,7 @@
         </ion-card-content>
 
         <ion-item>
-            <ion-button fill="clear" slot="end" (click)="openArticle(article);"><ion-icon name="exit"></ion-icon><div>Read</div></ion-button>
+            <ion-button fill="clear" slot="end" (click)="openArticle(article);"><div>Read </div><ion-icon slot="end" name="exit"></ion-icon></ion-button>
         </ion-item>
 
       </ion-card>
