@@ -1,0 +1,50 @@
+<ion-header>
+
+  <ion-toolbar color="{{schoolServ.school.colorA}}">
+
+    <ion-buttons slot="start">
+      <ion-back-button text="Back" defaultHref="/tabs/(grades:grades)"></ion-back-button>
+    </ion-buttons>
+
+    <ion-title>{{ subject ? subject.name : '...' }}</ion-title>
+
+  </ion-toolbar>
+
+</ion-header>
+
+<ion-content>
+
+  <ion-item-group *ngIf='subject'>
+
+    <ion-item-divider color="light">Assignments</ion-item-divider>
+
+      <ion-item *ngFor="let assignment of subject.assignments">
+          <ion-label text-nowrap>
+              <ion-text>
+                {{ assignment.name }}
+                <p color='medium'>{{ assignment.gradetype }}</p>
+              </ion-text>
+          </ion-label>
+          <ion-badge item-end color="{{ getColor(assignment.letter) }}">{{ assignment.grade }}</ion-badge>
+      </ion-item>
+
+  </ion-item-group>
+
+  <!-- Assignment Categories -->
+  <ion-item-group *ngIf='subject'>
+
+    <ion-item-divider color="light">Assignment Types</ion-item-divider>
+
+    <ion-item *ngFor="let category of subject.categories">
+    <ion-label>
+        <ion-text>
+          {{ category.name }}
+          <p color='light'>Weight: {{ category.weight }}</p>
+        </ion-text>
+    </ion-label>
+    <ion-badge slot="end" color="{{ getColor(category.letter) }}">{{ category.grade }}</ion-badge>
+    </ion-item>
+
+  </ion-item-group>
+
+</ion-content>

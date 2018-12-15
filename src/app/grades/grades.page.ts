@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { Events, AlertController, ToastController } from '@ionic/angular';
 import { Storage } from '@ionic/storage';
 import { Http, Headers, RequestOptions } from '@angular/http';
-import { Router, ActivatedRoute } from '@angular/router';
+import { Router } from '@angular/router';
 
 import { SchoolService } from '../cfisd';
 import { Globals } from '../globals';
@@ -294,9 +294,34 @@ export class GradesPage {
 
   }
 
-  async refresh(event) {
+  logout(fab) {
+
+    fab.close();
+
+    this.storage.set('grades:username', '');
+    this.storage.set('grades:password', '');
+    this.storage.set('grades:legal', false);
+    this.storage.set('grades:current', {});
+    this.storage.set('grades:reportcard', {});
+    this.storage.set('grades:transcript', {});
+
+    this.currentGrades = [];
+    this.reportCardGrades = [];
+    this.gpa = -1;
+    this.percentile = -1;
+    this.transcript = {};
+    this.loading = false;
+
+  }
+
+  async refresh(event?) {
+
+    if(this.loading) return; // dont refresh if still loading
+
     await this.loadGrades(this.gradeType);
-    event.target.complete();
+
+    if(event) event.target.complete();
+
   }
 
   fixPercent(percent: string): string {
@@ -310,14 +335,37 @@ export class GradesPage {
     this.router.navigate(['/legal'], {});
   }
 
+  openClassGrades(subject: SubjectGrade) {
+    this.router.navigate(['/assignments'], {
+      queryParams: {
+        subject: JSON.stringify(subject)
+      }
+    });
+  }
+
   async calculate() {
+
+    let handleGo = (data) => {
+      let reportcard: SubjectReportCard;
+      for (let subject of this.reportCardGrades) {
+        if (subject.name == data) {
+          reportcard = subject;
+          break;
+        }
+      }
+      this.router.navigate(['/calculator'], {
+        queryParams: {
+          reportcard: JSON.stringify(reportcard)
+        }
+      });
+    };
 
     let alertOptions = {
       header: 'Which Class?',
       inputs: [],
       buttons: [
         {text: 'Cancel'},
-        {text: 'Go', handler: () => {}}
+        {text: 'Go', handler: handleGo}
       ]
     };
 

@@ -32,7 +32,7 @@
       <ion-fab-list side="start">
           <ion-fab-button (click)="openLegal(fab)"><ion-icon name="list-box" color="dark"></ion-icon></ion-fab-button>
           <ion-fab-button (click)="showLogin(fab)"><ion-icon name="person-add" color="success"></ion-icon></ion-fab-button>
-          <ion-fab-button *ngIf="currentGrades.length != 0" (click)="refreshCurrent()"><ion-icon name="refresh" color="warning"></ion-icon></ion-fab-button>
+          <ion-fab-button *ngIf="currentGrades.length != 0" (click)="refresh()"><ion-icon name="refresh" color="warning"></ion-icon></ion-fab-button>
           <ion-fab-button *ngIf="currentGrades.length != 0" (click)="logout(fab)"><ion-icon name="close-circle" color="danger"></ion-icon></ion-fab-button>
       </ion-fab-list>
   </ion-fab>
