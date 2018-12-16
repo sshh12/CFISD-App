@@ -4,6 +4,9 @@ import json
 import re
 import os
 
+
+# Parser
+
 def find_all_schools(url, school_type):
 
     found = []
@@ -58,37 +61,101 @@ def find_all_schools(url, school_type):
 
     return found, colors
 
-highschools, highschool_colors = find_all_schools('https://www.cfisd.net/en/schools-facilities/our-schools/high-schools/', 'high')
 
-schools = highschools
+# Color Utils
 
-colors = {
-    'primary': '#488aff',
-    'secondary': '#32db64',
-    'danger': '#f53d3d',
-    'light': '#f4f4f4',
-    'dark': '#222',
-    'great': '#4CAF50',
-    'ok': '#FFCA28',
-    'poor': '#673AB7',
-    'bad': '#E53935',
-    'zero': '#424242',
-    'none': '#909090',
-    **highschool_colors
-}
+def hex_to_rgb(hex_):
+    hex_ = hex_.replace("#", "")
+    r = int(hex_[:2], 16)
+    g = int(hex_[2:4], 16)
+    b = int(hex_[4:6], 16)
+    return r, g, b
 
-with open(os.path.join('src', 'app', 'schools.ts'), 'w') as ts_file:
 
-    ts_file.write('export var Schools = ')
-    ts_file.write(json.dumps(schools, indent=4))
-    ts_file.write(';')
+def rgb_to_hex(r, g, b):
+    convert = lambda i : hex(i)[2:].zfill(2)
+    return f'#{convert(r)}{convert(r)}{convert(r)}'
 
-with open(os.path.join('src', 'theme', 'colors.scss'), 'w') as scss_file:
 
-    scss_file.write('$colors: (\n')
+def get_contrast(hex_):
+    r, g, b = hex_to_rgb(hex_)
+    luminance = (0.299 * r + 0.587 * g + 0.114 * b) / 255;
+    if luminance > 0.6:
+        return "#181818"
+    else:
+        return "#ffffff"
 
-    for name, hex_ in colors.items():
 
-        scss_file.write('    ' + name + ': ' + hex_ + ',\n')
+def get_shade(hex_):
+    r, g, b = hex_to_rgb(hex_)
+    r2 = int(r * 0.9)
+    g2 = int(g * 0.9)
+    b2 = int(b * 0.9)
+    return rgb_to_hex(r2, g2, b2)
 
-    scss_file.write(');')
+
+def get_tint(hex_):
+    r, g, b = hex_to_rgb(hex_)
+    r2 = r + int((255 - r) * .1)
+    g2 = g + int((255 - g) * .1)
+    b2 = b + int((255 - b) * .1)
+    return rgb_to_hex(r2, g2, b2)
+
+
+if __name__ == "__main__":
+    
+    highschools, highschool_colors = find_all_schools('https://www.cfisd.net/en/schools-facilities/our-schools/high-schools/', 'high')
+
+    schools = highschools
+
+    colors = {
+        'great': '#4CAF50',
+        'ok': '#FFCA28',
+        'poor': '#673AB7',
+        'zero': '#424242',
+        'none': '#909090',
+        'bad': '#E53935',
+        **highschool_colors
+    }
+
+    with open('schools.ts', 'w') as ts_file:
+
+        ts_file.write('export var Schools = ')
+        ts_file.write(json.dumps(schools, indent=4))
+        ts_file.write(';')
+
+    with open('colors.scss', 'w') as scss_file:
+
+        scss_file.write('  /** Custom Colors **/\n')
+
+        for name, hex_ in colors.items():
+
+            r, g, b = hex_to_rgb(hex_)
+            
+            scss_file.write(f'--ion-color-{name}: {hex_};\n')
+            scss_file.write(f'--ion-color-{name}-rgb: {r}, {g}, {b};\n')
+
+            contrast = get_contrast(hex_)
+            cr, cg, cb = hex_to_rgb(contrast)
+
+            scss_file.write(f'--ion-color-{name}-contrast: {contrast};\n')
+            scss_file.write(f'--ion-color-{name}-contrast-rgb: {cr}, {cg}, {cb};\n')
+
+            shade = get_shade(hex_)
+            tint = get_tint(hex_)
+
+            scss_file.write(f'--ion-color-{name}-shade: {shade};\n')
+            scss_file.write(f'--ion-color-{name}-tint: {tint};\n')
+
+        scss_file.write('\n'*3)
+
+        for name, hex_ in colors.items():
+
+            scss_file.write(f'.ion-color-{name} {{\n')
+            scss_file.write(f'  --ion-color-base: var(--ion-color-{name}) !important;\n')
+            scss_file.write(f'  --ion-color-base-rgb: var(--ion-color-{name}-rgb) !important;\n')
+            scss_file.write(f'  --ion-color-contrast: var(--ion-color-{name}-contrast) !important;\n')
+            scss_file.write(f'  --ion-color-contrast-rgb: var(--ion-color-{name}-contrast-rgb) !important;\n')
+            scss_file.write(f'  --ion-color-shade: var(--ion-color-{name}-shade) !important;\n')
+            scss_file.write(f'  --ion-color-tint: var(--ion-color-{name}-tint) !important;\n')
+            scss_file.write('}\n')

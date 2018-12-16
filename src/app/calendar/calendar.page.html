@@ -1,0 +1,103 @@
+<ion-header>
+
+  <ion-toolbar color="{{schoolServ.school.colorA}}">
+    <ion-title>
+      Calendar
+    </ion-title>
+  </ion-toolbar>
+
+  <ion-toolbar>
+    <ion-segment [(ngModel)]="calendarmode" color='{{schoolServ.school.colorB}}'>
+      <ion-segment-button value="assignments">
+        Assignments
+      </ion-segment-button>
+      <ion-segment-button value="attendance">
+        Attendance
+      </ion-segment-button>
+    </ion-segment>
+  </ion-toolbar>
+
+</ion-header>
+
+<ion-content>
+
+  <ion-fab slot="fixed" *ngIf="calendarmode == 'assignments'" vertical='top' horizontal='end'>
+      <ion-fab-button mini color='{{schoolServ.school.colorC}}' (click)="openBellSchedule()"><ion-icon name="notifications"></ion-icon></ion-fab-button>
+  </ion-fab>
+
+  <ion-fab slot="fixed" *ngIf="calendarmode == 'attendance'" vertical='top' horizontal='end'>
+      <ion-fab-button mini color='{{schoolServ.school.colorC}}' (click)="refresh()"><ion-icon name="refresh"></ion-icon></ion-fab-button>
+  </ion-fab>
+
+  <div *ngIf="loading" text-center>
+      <ion-chip>
+          <ion-label>Downloading...</ion-label>
+      </ion-chip>
+  </div>
+
+  <div *ngIf="calendarmode == 'assignments'">
+
+    <ion-card *ngIf="!loading && currentGrades.length == 0">
+        <ion-card-header>
+            <b>Login</b>
+        </ion-card-header>
+        <ion-card-content>
+            Use the button in the bottom right of the Grades tab to login.
+            <br> (
+            <ion-icon name="school" color="{{schoolServ.school.colorA}}"></ion-icon> then
+            <ion-icon name="options" color="{{schoolServ.school.colorC}}"></ion-icon> then
+            <ion-icon name="person-add" color="success"></ion-icon>)
+        </ion-card-content>
+    </ion-card>
+
+    <ion-list *ngIf="currentGrades">
+
+      <ion-item-group *ngFor="let timeslot of currentGrades._assignCalendar">
+
+        <ion-item-divider id="{{ timeslot.name }}" color='{{schoolServ.school.colorB}}'>{{ timeslot.name }}</ion-item-divider>
+
+        <ion-item *ngFor="let assignment of timeslot.assignments">
+            <ion-label>
+              <h2><b>{{ assignment.name }}</b></h2>
+              <p>{{ assignment.subject }} ({{ assignment.datedue }})</p>
+            </ion-label>
+        </ion-item>
+
+      </ion-item-group>
+
+    </ion-list>
+
+  </div>
+
+  <div *ngIf="calendarmode == 'attendance'">
+
+    <ion-list>
+
+      <ion-card *ngFor="let month of attendance.months">
+
+        <ion-card-header>
+          <b>{{ month.name }}</b>
+        </ion-card-header>
+
+        <ion-card-content>
+          <ion-row>
+            <ion-col>M</ion-col>
+            <ion-col>T</ion-col>
+            <ion-col>W</ion-col>
+            <ion-col>T</ion-col>
+            <ion-col>F</ion-col>
+            <ion-col>S</ion-col>
+          </ion-row>
+          <ion-row *ngFor="let row of month._rows">
+            <ion-col col-2 *ngFor="let idx of row">
+              <ion-badge *ngIf="idx >= 0" color="{{ getColor(month.days[idx]) }}" (click)="showDayInfo(month.days[idx])">{{ (month.days[idx].day + "").padStart(2, "0") }}</ion-badge>
+            </ion-col>
+          </ion-row>
+        </ion-card-content>
+      </ion-card>
+
+    </ion-list>
+
+  </div>
+
+</ion-content>

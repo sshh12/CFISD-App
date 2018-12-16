@@ -1,0 +1,40 @@
+<ion-tabs>
+
+  <ion-tab tab="news">
+    <ion-router-outlet name="news"></ion-router-outlet>
+  </ion-tab>
+  <ion-tab tab="grades">
+    <ion-router-outlet name="grades"></ion-router-outlet>
+  </ion-tab>
+  <ion-tab tab="calendar">
+    <ion-router-outlet name="calendar"></ion-router-outlet>
+  </ion-tab>
+  <ion-tab tab="sites">
+    <ion-router-outlet name="sites"></ion-router-outlet>
+  </ion-tab>
+
+  <ion-tab-bar slot="bottom" color='{{schoolServ.school.colorA}}'>
+
+    <ion-tab-button tab="news" href="/tabs/(news:news)">
+      <ion-icon name="paper"></ion-icon>
+      <ion-label>News</ion-label>
+    </ion-tab-button>
+
+    <ion-tab-button tab="grades" href="/tabs/(grades:grades)">
+      <ion-icon name="school"></ion-icon>
+      <ion-label>Grades</ion-label>
+    </ion-tab-button>
+
+    <ion-tab-button tab="calendar" href="/tabs/(calendar:calendar)">
+      <ion-icon name="calendar"></ion-icon>
+      <ion-label>Calendar</ion-label>
+    </ion-tab-button>
+
+    <ion-tab-button tab="sites" href="/tabs/(sites:sites)">
+      <ion-icon name="contacts"></ion-icon>
+      <ion-label>Sites</ion-label>
+    </ion-tab-button>
+
+  </ion-tab-bar>
+
+</ion-tabs>

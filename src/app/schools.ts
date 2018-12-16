@@ -1,4 +1,18 @@
-export var Schools = [
+export class School {
+    name: string;
+    shortname: string;
+    website: string;
+    faculty: string;
+    bells: string;
+    basicnews: string;
+    colorA: string;
+    colorB: string;
+    colorC: string;
+    schooltype: string;
+    studentnews?: string;
+};
+
+export const Schools: Array<School> = [
     {
         "name": "Bridgeland",
         "shortname": "bridgeland",
