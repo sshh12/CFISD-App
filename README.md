@@ -9,7 +9,7 @@ An app I created for [Cypress Fairbanks ISD](https://www.cfisd.net/en/).
 ## Releases
 + [Android](https://play.google.com/store/apps/details?id=io.sshh.cfisdapp)
 + [Android Beta](https://play.google.com/apps/testing/io.sshh.cfisdapp)
-+ [Apple (Coming Soon)](#)
++ [Apple](https://itunes.apple.com/us/app/cfisd-grades/id1433713147)
 
 ## What
 The CFISD app was built as a utility for both Android and Apple users. The app includes ways to access
