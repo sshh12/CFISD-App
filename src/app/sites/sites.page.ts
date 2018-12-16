@@ -101,12 +101,12 @@ export class SitesPage {
                           .replace("/a/cfisd.net/", "/../");
   }
 
-  onSearch(input) {
+  onSearch(event: any) {
 
     // Ez Object Copy (current teachers is simply a filtered version of all teachers)
     this.curTeachers = JSON.parse(JSON.stringify(this.allTeachers));
 
-    let term = input.target.value;
+    let term = event.target.value;
 
     // No query
     if(!term || term.length == 0) {

@@ -60,7 +60,7 @@ export class AppComponent {
 
     const bannerConfig: AdMobFreeBannerConfig = {
       id: bannerAdID,
-      isTesting: false, // REMOVE BEFORE FLIGHT
+      isTesting: true, // REMOVE BEFORE FLIGHT
       autoShow: false
     };
     this.admobFree.banner.config(bannerConfig);
