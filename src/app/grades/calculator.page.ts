@@ -3,7 +3,6 @@ import { ActivatedRoute } from '@angular/router';
 
 import { SchoolService } from '../cfisd';
 import { SubjectReportCard } from './gradetypes';
-import { getColor } from './gradeutil';
 
 @Component({
   templateUrl: 'calculator.page.html',

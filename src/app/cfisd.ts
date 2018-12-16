@@ -40,6 +40,7 @@ export async function promptForSchool(schoolServ: SchoolService,
 
   let alertOptions = {
     header: 'School',
+    backdropDismiss: false,
     inputs: [],
     buttons: [{
       text: 'Go',

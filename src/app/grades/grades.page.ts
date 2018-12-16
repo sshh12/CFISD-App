@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ApplicationRef } from '@angular/core';
 import { Events, AlertController, ToastController } from '@ionic/angular';
 import { Storage } from '@ionic/storage';
 import { Http, Headers, RequestOptions } from '@angular/http';
@@ -35,6 +35,7 @@ export class GradesPage {
   timeAgo = timeAgo;
 
   constructor (public events: Events,
+               private ref: ApplicationRef,
                public toastCtrl: ToastController,
                public alertCtrl: AlertController,
                private http: Http,
@@ -101,6 +102,7 @@ export class GradesPage {
     }
 
     this.loading = false;
+    this.ref.tick();
 
   }
 
@@ -116,6 +118,7 @@ export class GradesPage {
     }
 
     this.loading = false;
+    this.ref.tick();
 
   }
 
@@ -133,6 +136,7 @@ export class GradesPage {
     }
 
     this.loading = false;
+    this.ref.tick();
 
   }
 
@@ -206,7 +210,7 @@ export class GradesPage {
   }
 
   validCreds(sid: string, password: string): boolean {
-    return password.length > 4 && sid.length > 4;
+    return sid && password && password.length > 4 && sid.length > 4;
   }
 
   async showLogin(fab) {

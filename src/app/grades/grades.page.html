@@ -55,10 +55,10 @@
     <ion-list *ngSwitchCase="'current'">
 
       <!-- Default Pre-Login Screen -->
-      <ion-card *ngIf="!loading && currentGrades.length == 0">
+      <ion-card *ngIf="!loading && currentGrades.length == 0 && reportCardGrades.length == 0">
         <ion-card-header>Login</ion-card-header>
         <ion-card-content>
-          Use the button in the top right to login.
+          Use the button in the bottom right to login.
             <br> (
             <ion-icon name="options" color="{{schoolServ.school.colorC}}"></ion-icon> then
             <ion-icon name="person-add" color="success"></ion-icon>)
@@ -82,7 +82,7 @@
         <ion-card *ngIf="!loading && reportCardGrades.length == 0">
             <ion-card-header>Login or Refresh</ion-card-header>
             <ion-card-content>
-                Use the button in the top right to login.
+                Use the button in the bottom right to login.
                 <br> (
                 <ion-icon name="options" color="{{schoolServ.school.colorC}}"></ion-icon> then
                 <ion-icon name="person-add" color="success"></ion-icon> or
@@ -144,7 +144,7 @@
       <ion-card *ngIf="!loading && !transcript.gpa">
         <ion-card-header>Login or Refresh</ion-card-header>
         <ion-card-content>
-            Use the button in the top right to login.
+            Use the button in the bottom right to login.
               <br> (
                   <ion-icon name="options" color="{{schoolServ.school.colorC}}"></ion-icon> then
                   <ion-icon name="person-add" color="success"></ion-icon> or
