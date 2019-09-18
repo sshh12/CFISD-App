@@ -26,7 +26,9 @@ export class AssignmentsPage {
   async initAssignments() {
 
     this.route.queryParams.subscribe((params) => {
-      this.subject = JSON.parse(params.subject);
+      try {
+        this.subject = JSON.parse(params.subject);
+      } catch (e) {}
     });
 
   }

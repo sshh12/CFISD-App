@@ -24,15 +24,14 @@ export class SitesPage {
   showGeneral: boolean = true;
 
   constructor(public events: Events,
-              public schoolServ: SchoolService,
-              private storage: Storage,
-              private http: Http,
-              public alertCtrl: AlertController,
-              public toastCtrl: ToastController) {
+    public schoolServ: SchoolService,
+    private storage: Storage,
+    private http: Http,
+    public alertCtrl: AlertController,
+    public toastCtrl: ToastController) {
 
     // Handle download of faculty info
     this.events.subscribe('faculty:downloaded', teachers => {
-      console.log(teachers, this.letters);
       this.storage.set('faculty:list', teachers);
       this.allTeachers = teachers;
       this.curTeachers = teachers;
@@ -66,7 +65,9 @@ export class SitesPage {
 
   async loadTeachers() {
 
-    console.log(`${Globals.SERVER}/api/faculty/list?url=${this.schoolServ.school.faculty}`);
+    if (!this.schoolServ.school.faculty) {
+      return;
+    }
 
     try {
 
@@ -74,7 +75,7 @@ export class SitesPage {
       let data = await httpRequest.toPromise();
       this.events.publish('faculty:downloaded', data.json());
 
-    } catch(e) {
+    } catch (e) {
 
       let toast = await this.toastCtrl.create({
         message: 'Couldn\'t find any teachers 😔',
@@ -97,8 +98,8 @@ export class SitesPage {
 
   cleanWebsite(teacher) {
     return teacher.website.replace("https://", "")
-                          .replace("http://www.", "")
-                          .replace("/a/cfisd.net/", "/../");
+      .replace("http://www.", "")
+      .replace("/a/cfisd.net/", "/../");
   }
 
   onSearch(event: any) {
@@ -109,7 +110,7 @@ export class SitesPage {
     let term = event.target.value;
 
     // No query
-    if(!term || term.length == 0) {
+    if (!term || term.length == 0) {
       this.showGeneral = true;
       return;
     }

@@ -34,14 +34,14 @@ export class GradesPage {
   getColorRank = getColorRank;
   timeAgo = timeAgo;
 
-  constructor (public events: Events,
-               private ref: ApplicationRef,
-               public toastCtrl: ToastController,
-               public alertCtrl: AlertController,
-               private http: Http,
-               private storage: Storage,
-               public router: Router,
-               public schoolServ: SchoolService) {
+  constructor(public events: Events,
+    private ref: ApplicationRef,
+    public toastCtrl: ToastController,
+    public alertCtrl: AlertController,
+    private http: Http,
+    private storage: Storage,
+    public router: Router,
+    public schoolServ: SchoolService) {
 
     this.events.subscribe('grades:current', this.onCurrentGrades.bind(this));
     this.events.subscribe('grades:reportcard', this.onReportCard.bind(this));
@@ -55,7 +55,7 @@ export class GradesPage {
 
     let grades = await this.storage.get('grades:current');
     if (grades) {
-        this.events.publish('grades:current', grades);
+      this.events.publish('grades:current', grades);
     }
 
     let reportcard = await this.storage.get('grades:reportcard');
@@ -71,8 +71,6 @@ export class GradesPage {
   }
 
   onCurrentGrades(grades) {
-
-    console.log(grades);
 
     if (grades.status == 'success') {
 
@@ -108,8 +106,6 @@ export class GradesPage {
 
   onReportCard(reportcard) {
 
-    console.log(reportcard);
-
     if (reportcard.status == 'success') {
       this.storage.set('grades:reportcard', reportcard);
       this.reportCardGrades = reportcard.reportcard;
@@ -123,8 +119,6 @@ export class GradesPage {
   }
 
   onTranscript(transcript) {
-
-    console.log(transcript);
 
     if (transcript.status == 'success') {
       this.storage.set('grades:transcript', transcript);
@@ -153,9 +147,9 @@ export class GradesPage {
 
     if (status == 'login_failed') {
       showToast('Your login didn\'t work 😔');
-    } else if(status == 'connection_failed'){
+    } else if (status == 'connection_failed') {
       showToast('Unable to connect to HomeAccessCenter 😔');
-    } else if(status == 'server_error'){
+    } else if (status == 'server_error') {
       showToast('Something\'s wrong with the server 😔');
     } else {
       showToast('Oops something\'s wrong... 😔');
@@ -170,7 +164,7 @@ export class GradesPage {
 
     if (!this.validCreds(username, password)) {
       let toast = await this.toastCtrl.create({
-        message: 'Invalid username or password',
+        message: 'Invalid username or password 😕',
         position: 'top',
         duration: 3000
       });
@@ -195,7 +189,7 @@ export class GradesPage {
       json._updatedDate = new Date();
       this.events.publish(`grades:${gradeType}`, json);
 
-    } catch(e) {
+    } catch (e) {
 
       this.loading = false;
       let toast = await this.toastCtrl.create({
@@ -282,7 +276,7 @@ export class GradesPage {
 
     let confirm = await this.alertCtrl.create({
       header: 'Legal',
-      message: 'To provide statistical features and contribute to personal data analysis, the app requires that you accept the policies outlined in the legal section of the app (black icon in the top right menu) and confirm that you are more than 13 years old.',
+      message: 'For future features and data analysis, the app requires that you accept the policies outlined in the legal section of the app (black icon in the top right menu) and confirm that you are more than 14 years old.',
       buttons: [
         {
           text: 'No!',
@@ -320,11 +314,19 @@ export class GradesPage {
 
   async refresh(event?) {
 
-    if(this.loading) return; // dont refresh if still loading
+    if (this.loading) return; // dont refresh if still loading
+
+    await this.storage.set('grades:legal', false);
+    let toast = await this.toastCtrl.create({
+      message: '☁️ Downloading...',
+      position: 'top',
+      duration: 1500
+    });
+    toast.present();
 
     await this.loadGrades(this.gradeType);
 
-    if(event) event.target.complete();
+    if (event) event.target.complete();
 
   }
 
@@ -368,8 +370,8 @@ export class GradesPage {
       header: 'Which Class?',
       inputs: [],
       buttons: [
-        {text: 'Cancel'},
-        {text: 'Go', handler: handleGo}
+        { text: 'Cancel' },
+        { text: 'Go', handler: handleGo }
       ]
     };
 

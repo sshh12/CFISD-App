@@ -5,17 +5,17 @@
   </ion-toolbar>
 
   <ion-toolbar>
-      <ion-segment [(ngModel)]="gradeType" color='{{schoolServ.school.colorB}}'>
-          <ion-segment-button value="current">
-              <ion-label>Current</ion-label>
-          </ion-segment-button>
-          <ion-segment-button value="reportcard">
-              <ion-label>Report Card</ion-label>
-          </ion-segment-button>
-          <ion-segment-button value="transcript">
-              <ion-label>GPA</ion-label>
-          </ion-segment-button>
-      </ion-segment>
+    <ion-segment [(ngModel)]="gradeType" color='{{schoolServ.school.colorB}}'>
+      <ion-segment-button value="current">
+        <ion-label>Current</ion-label>
+      </ion-segment-button>
+      <ion-segment-button value="reportcard">
+        <ion-label>Report Card</ion-label>
+      </ion-segment-button>
+      <ion-segment-button value="transcript">
+        <ion-label>GPA</ion-label>
+      </ion-segment-button>
+    </ion-segment>
   </ion-toolbar>
 
 </ion-header>
@@ -28,25 +28,31 @@
   </ion-refresher>
 
   <ion-fab slot="fixed" vertical="bottom" horizontal="end" #fab>
-      <ion-fab-button mini color='{{schoolServ.school.colorC}}'><ion-icon name="options"></ion-icon></ion-fab-button>
-      <ion-fab-list side="start">
-          <ion-fab-button (click)="openLegal(fab)"><ion-icon name="list-box" color="dark"></ion-icon></ion-fab-button>
-          <ion-fab-button (click)="showLogin(fab)"><ion-icon name="person-add" color="success"></ion-icon></ion-fab-button>
-          <ion-fab-button *ngIf="currentGrades.length != 0" (click)="refresh()"><ion-icon name="refresh" color="warning"></ion-icon></ion-fab-button>
-          <ion-fab-button *ngIf="currentGrades.length != 0" (click)="logout(fab)"><ion-icon name="close-circle" color="danger"></ion-icon></ion-fab-button>
-      </ion-fab-list>
+    <ion-fab-button size="small" color='{{schoolServ.school.colorC}}'>
+      <ion-icon name="options"></ion-icon>
+    </ion-fab-button>
+    <ion-fab-list side="start">
+      <ion-fab-button (click)="openLegal(fab)">
+        <ion-icon name="list-box" color="dark"></ion-icon>
+      </ion-fab-button>
+      <ion-fab-button (click)="showLogin(fab)">
+        <ion-icon name="person-add" color="success"></ion-icon>
+      </ion-fab-button>
+      <ion-fab-button *ngIf="currentGrades.length != 0" (click)="refresh()">
+        <ion-icon name="refresh" color="warning"></ion-icon>
+      </ion-fab-button>
+      <ion-fab-button *ngIf="currentGrades.length != 0" (click)="logout(fab)">
+        <ion-icon name="close-circle" color="danger"></ion-icon>
+      </ion-fab-button>
+    </ion-fab-list>
   </ion-fab>
 
-  <ion-fab slot="fixed" vertical="top" horizontal="end" *ngIf="gradeType == 'reportcard' && reportCardGrades.length != 0">
-      <ion-fab-button ion-fab mini color='{{schoolServ.school.colorB}}' (click)="calculate()"><ion-icon name="calculator"></ion-icon></ion-fab-button>
+  <ion-fab slot="fixed" vertical="top" horizontal="end"
+    *ngIf="gradeType == 'reportcard' && reportCardGrades.length != 0">
+    <ion-fab-button ion-fab size="small" color='{{schoolServ.school.colorB}}' (click)="calculate()">
+      <ion-icon name="calculator"></ion-icon>
+    </ion-fab-button>
   </ion-fab>
-
-  <!-- Loading... -->
-  <div *ngIf="loading" text-center>
-      <ion-chip>
-          <ion-label>Downloading...</ion-label>
-      </ion-chip>
-  </div>
 
   <!-- Grades -->
   <div class='grade-content' [ngSwitch]="gradeType">
@@ -56,12 +62,12 @@
 
       <!-- Default Pre-Login Screen -->
       <ion-card *ngIf="!loading && currentGrades.length == 0 && reportCardGrades.length == 0">
-        <ion-card-header>Login</ion-card-header>
+        <ion-card-header><b>Login</b></ion-card-header>
         <ion-card-content>
           Use the button in the bottom right to login.
-            <br> (
-            <ion-icon name="options" color="{{schoolServ.school.colorC}}"></ion-icon> then
-            <ion-icon name="person-add" color="success"></ion-icon>)
+          <br> (
+          <ion-icon name="options" color="{{schoolServ.school.colorC}}"></ion-icon> then
+          <ion-icon name="person-add" color="success"></ion-icon>)
         </ion-card-content>
       </ion-card>
 
@@ -78,62 +84,72 @@
     <!-- Reportcard Grades -->
     <div *ngSwitchCase="'reportcard'">
 
-        <!-- Default Pre-Login Screen -->
-        <ion-card *ngIf="!loading && reportCardGrades.length == 0">
-            <ion-card-header>Login or Refresh</ion-card-header>
-            <ion-card-content>
-                Use the button in the bottom right to login.
-                <br> (
-                <ion-icon name="options" color="{{schoolServ.school.colorC}}"></ion-icon> then
-                <ion-icon name="person-add" color="success"></ion-icon> or
-                <ion-icon name="refresh" color="warning"></ion-icon>)
-            </ion-card-content>
+      <!-- Default Pre-Login Screen -->
+      <ion-card *ngIf="!loading && reportCardGrades.length == 0">
+        <ion-card-header><b>Login to view</b></ion-card-header>
+        <ion-card-content>
+          Use the button in the bottom right to login.
+          <br> (
+          <ion-icon name="options" color="{{schoolServ.school.colorC}}"></ion-icon> then
+          <ion-icon name="person-add" color="success"></ion-icon> or
+          <ion-icon name="refresh" color="warning"></ion-icon>)
+        </ion-card-content>
+      </ion-card>
+
+      <ion-list>
+
+        <ion-card *ngFor="let subject of reportCardGrades">
+          <ion-card-header>
+            <ion-label color="dark">{{ subject.name }}</ion-label>
+          </ion-card-header>
+          <ion-card-content>
+            <p>9 Weeks</p>
+            <ion-row>
+              <ion-col col-3>
+                <ion-badge color="{{ getColor(subject.averages[0].letter) }}">
+                  {{ fixPercent(subject.averages[0].average) }}</ion-badge>
+              </ion-col>
+              <ion-col col-3>
+                <ion-badge color="{{ getColor(subject.averages[1].letter) }}">
+                  {{ fixPercent(subject.averages[1].average) }}</ion-badge>
+              </ion-col>
+              <ion-col col-3>
+                <ion-badge color="{{ getColor(subject.averages[2].letter) }}">
+                  {{ fixPercent(subject.averages[2].average) }}</ion-badge>
+              </ion-col>
+              <ion-col col-3>
+                <ion-badge color="{{ getColor(subject.averages[3].letter) }}">
+                  {{ fixPercent(subject.averages[3].average) }}</ion-badge>
+              </ion-col>
+            </ion-row>
+            <hr>
+            <p>Finals</p>
+            <ion-row>
+              <ion-col col-6>
+                <ion-badge color="{{ getColor(subject.exams[0].letter) }}">{{ fixPercent(subject.exams[0].average) }}
+                </ion-badge>
+              </ion-col>
+              <ion-col col-6>
+                <ion-badge color="{{ getColor(subject.exams[1].letter) }}">{{ fixPercent(subject.exams[1].average) }}
+                </ion-badge>
+              </ion-col>
+            </ion-row>
+            <hr>
+            <p>Semesters</p>
+            <ion-row>
+              <ion-col col-6>
+                <ion-badge color="{{ getColor(subject.semesters[0].letter) }}">
+                  {{ fixPercent(subject.semesters[0].average) }}</ion-badge>
+              </ion-col>
+              <ion-col col-6>
+                <ion-badge color="{{ getColor(subject.semesters[1].letter) }}">
+                  {{ fixPercent(subject.semesters[1].average) }}</ion-badge>
+              </ion-col>
+            </ion-row>
+          </ion-card-content>
         </ion-card>
 
-        <ion-list>
-
-            <ion-card *ngFor="let subject of reportCardGrades">
-                <ion-card-header><ion-label color="dark">{{ subject.name }}</ion-label></ion-card-header>
-                <ion-card-content>
-                <p>9 Weeks</p>
-                <ion-row>
-                  <ion-col col-3>
-                      <ion-badge color="{{ getColor(subject.averages[0].letter) }}">{{ fixPercent(subject.averages[0].average) }}</ion-badge>
-                  </ion-col>
-                  <ion-col col-3>
-                      <ion-badge color="{{ getColor(subject.averages[1].letter) }}">{{ fixPercent(subject.averages[1].average) }}</ion-badge>
-                  </ion-col>
-                  <ion-col col-3>
-                      <ion-badge color="{{ getColor(subject.averages[2].letter) }}">{{ fixPercent(subject.averages[2].average) }}</ion-badge>
-                  </ion-col>
-                  <ion-col col-3>
-                      <ion-badge color="{{ getColor(subject.averages[3].letter) }}">{{ fixPercent(subject.averages[3].average) }}</ion-badge>
-                  </ion-col>
-                </ion-row>
-                <hr>
-                <p>Finals</p>
-                <ion-row>
-                    <ion-col col-6>
-                        <ion-badge color="{{ getColor(subject.exams[0].letter) }}">{{ fixPercent(subject.exams[0].average) }}</ion-badge>
-                    </ion-col>
-                    <ion-col col-6>
-                        <ion-badge color="{{ getColor(subject.exams[1].letter) }}">{{ fixPercent(subject.exams[1].average) }}</ion-badge>
-                    </ion-col>
-                </ion-row>
-                <hr>
-                <p>Semesters</p>
-                <ion-row>
-                    <ion-col col-6>
-                        <ion-badge color="{{ getColor(subject.semesters[0].letter) }}">{{ fixPercent(subject.semesters[0].average) }}</ion-badge>
-                    </ion-col>
-                    <ion-col col-6>
-                        <ion-badge color="{{ getColor(subject.semesters[1].letter) }}">{{ fixPercent(subject.semesters[1].average) }}</ion-badge>
-                    </ion-col>
-                </ion-row>
-            </ion-card-content>
-          </ion-card>
-
-        </ion-list>
+      </ion-list>
 
     </div>
 
@@ -142,22 +158,26 @@
 
       <!-- Default Pre-Login Screen -->
       <ion-card *ngIf="!loading && !transcript.gpa">
-        <ion-card-header>Login or Refresh</ion-card-header>
+        <ion-card-header><b>Login to view</b></ion-card-header>
         <ion-card-content>
-            Use the button in the bottom right to login.
-              <br> (
-                  <ion-icon name="options" color="{{schoolServ.school.colorC}}"></ion-icon> then
-                  <ion-icon name="person-add" color="success"></ion-icon> or
-                  <ion-icon name="refresh" color="warning"></ion-icon>)
+          Use the button in the bottom right to login.
+          <br> (
+          <ion-icon name="options" color="{{schoolServ.school.colorC}}"></ion-icon> then
+          <ion-icon name="person-add" color="success"></ion-icon> or
+          <ion-icon name="refresh" color="warning"></ion-icon>)
         </ion-card-content>
       </ion-card>
 
       <ion-card *ngIf="transcript.gpa">
         <ion-card-header>
-          <ion-label color="dark"><h1 text-center><b>{{ gpa.toFixed(3) }}</b></h1></ion-label>
+          <ion-label color="dark">
+            <h1 text-center><b>{{ gpa.toFixed(3) }}</b></h1>
+          </ion-label>
         </ion-card-header>
         <ion-card-content>
-          <ion-text><p text-center>{{ transcript.gpa.rank }} / {{ transcript.gpa.class_size }}</p></ion-text>
+          <ion-text>
+            <p text-center>{{ transcript.gpa.rank }} / {{ transcript.gpa.class_size }}</p>
+          </ion-text>
           <br>
           <ion-badge class='classrank-badge' color='{{ getColorRank(percentile) }}'>Top {{ percentile }}%</ion-badge>
         </ion-card-content>
