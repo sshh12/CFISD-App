@@ -3,7 +3,7 @@
   <ion-toolbar color="{{schoolServ.school.colorA}}">
 
     <ion-buttons slot="start">
-      <ion-back-button text="Back" defaultHref="/tabs/(grades:grades)"></ion-back-button>
+      <ion-back-button text="Back" defaultHref="/tabs/grades"></ion-back-button>
     </ion-buttons>
 
     <ion-title>{{ subject ? subject.name : '...' }}</ion-title>
@@ -30,49 +30,54 @@
 
     <ion-card-content>
 
-        <ion-row>
-            <ion-col size='6'>
-              <ion-item>
-                  <ion-label position="stacked">First 9 Weeks</ion-label>
-                  <ion-input (keyup.enter)="update('second')" (change)="update('first')" [(ngModel)]="firstweeks" type="number"></ion-input>
-              </ion-item>
-            </ion-col>
-            <ion-col size='6'>
-              <ion-item>
-                  <ion-label position="stacked">Second 9 Weeks</ion-label>
-                  <ion-input (keyup.enter)="update('second')" (change)="update('second')" [(ngModel)]="secondweeks" type="number"></ion-input>
-              </ion-item>
-            </ion-col>
-        </ion-row>
+      <ion-row>
+        <ion-col size='6'>
+          <ion-item>
+            <ion-label position="stacked">First 9 Weeks</ion-label>
+            <ion-input (keyup.enter)="update('second')" (change)="update('first')" [(ngModel)]="firstweeks"
+              type="number"></ion-input>
+          </ion-item>
+        </ion-col>
+        <ion-col size='6'>
+          <ion-item>
+            <ion-label position="stacked">Second 9 Weeks</ion-label>
+            <ion-input (keyup.enter)="update('second')" (change)="update('second')" [(ngModel)]="secondweeks"
+              type="number"></ion-input>
+          </ion-item>
+        </ion-col>
+      </ion-row>
 
-        <ion-row>
-            <ion-col size='6'>
-              <ion-item>
-                <ion-label position="stacked">Final</ion-label>
-                <ion-input (keyup.enter)="update('second')" disabled="{{ exempt }}" (change)="update('exam')" [(ngModel)]="exam" type="number"></ion-input>
-              </ion-item>
-            </ion-col>
-            <ion-col size='6'>
-              <ion-item>
-                  <ion-label position="stacked">Semester</ion-label>
-                  <ion-input (keyup.enter)="update('second')" (change)="update('sem')" [(ngModel)]="sem" type="number"></ion-input>
-              </ion-item>
-            </ion-col>
-        </ion-row>
+      <ion-row>
+        <ion-col size='6'>
+          <ion-item>
+            <ion-label position="stacked">Final</ion-label>
+            <ion-input (keyup.enter)="update('second')" disabled="{{ exempt }}" (change)="update('exam')"
+              [(ngModel)]="exam" type="number"></ion-input>
+          </ion-item>
+        </ion-col>
+        <ion-col size='6'>
+          <ion-item>
+            <ion-label position="stacked">Semester</ion-label>
+            <ion-input (keyup.enter)="update('second')" (change)="update('sem')" [(ngModel)]="sem" type="number">
+            </ion-input>
+          </ion-item>
+        </ion-col>
+      </ion-row>
 
-        <ion-row>
-            <ion-col size='6' class='exempt-btn'>
-              <ion-label>
-              <ion-checkbox (click)="update('exam')" [(ngModel)]="exempt" color='{{schoolServ.school.colorC}}' checked="false"></ion-checkbox>
-              <ion-text>Exemption</ion-text>
-              </ion-label>
-            </ion-col>
-            <ion-col size='6'>
-              <ion-label>
-                <ion-button fill="outline" slot="end" (click)="update('')">Calculate</ion-button>
-              </ion-label>
-            </ion-col>
-        </ion-row>
+      <ion-row>
+        <ion-col size='6' class='exempt-btn'>
+          <ion-label>
+            <ion-checkbox (click)="update('exam')" [(ngModel)]="exempt" color='{{schoolServ.school.colorC}}'
+              checked="false"></ion-checkbox>
+            <ion-text>Exemption</ion-text>
+          </ion-label>
+        </ion-col>
+        <ion-col size='6'>
+          <ion-label>
+            <ion-button fill="outline" slot="end" (click)="update('')">Calculate</ion-button>
+          </ion-label>
+        </ion-col>
+      </ion-row>
 
     </ion-card-content>
 
