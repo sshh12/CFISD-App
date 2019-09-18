@@ -1,10 +1,11 @@
 {
-  "name": "CFISDApp",
+  "name": "cfisd-app",
   "version": "1.0.0",
   "author": "Shrivu Shankar",
   "homepage": "https://sshh.io",
   "scripts": {
     "android-dev": "ionic cordova run android",
+    "android-deploy": "ionic cordova build android --release --rollup --prod && jarsigner -verbose -sigalg SHA1withRSA -digestalg SHA1 -keystore publish/cfisd-release.keystore platforms/android/app/build/outputs/apk/release/app-release-unsigned.apk cfisdkey && zipalign -v 4 platforms/android/app/build/outputs/apk/release/app-release-unsigned.apk CFISD.apk",
     "ios-deploy": "ionic cordova build ios --rollup --prod",
     "lab": "ionic serve --lab"
   },
