@@ -1,7 +1,5 @@
 import {
-  SubjectGrade,
-  SubjectReportCard,
-  AssignmentGrade
+  SubjectGrade
 } from './gradetypes';
 
 const classList: object = {
@@ -62,7 +60,7 @@ export function getIcon(subject: SubjectGrade) {
   } else if (classType == "sports") {
     return "american-football";
   } else {
-      return "create";
+    return "create";
   }
 }
 
@@ -99,8 +97,8 @@ export function timeAgo(date: Date): string {
   let time = (Date.now() - date.getTime());
 
   let seconds = time / 1000,
-      token = 'ago',
-      list_choice = 1;
+    token = 'ago',
+    list_choice = 1;
 
   if (seconds == 0) {
     return 'Just now'
@@ -110,8 +108,7 @@ export function timeAgo(date: Date): string {
     list_choice = 2;
   }
 
-  var i = 0,
-      format;
+  var i = 0, format;
 
   while (format = timeFormats[i++]) {
     if (seconds < format[0]) {

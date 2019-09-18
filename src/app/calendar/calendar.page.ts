@@ -161,7 +161,7 @@ export class CalendarPage {
 
     if (!this.validCreds(username, password)) {
       let toast = await this.toastCtrl.create({
-        message: 'Invalid username or password',
+        message: 'Invalid username or password 😕',
         position: 'top',
         duration: 3000
       });

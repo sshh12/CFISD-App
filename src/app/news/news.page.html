@@ -13,12 +13,6 @@
 
   <ion-list>
 
-    <div *ngIf="loading" text-center>
-        <ion-chip>
-            <ion-label>Downloading...</ion-label>
-        </ion-chip>
-    </div>
-
     <div *ngFor="let article of allNews; let i = index">
 
       <ion-card *ngIf="i < 25">
@@ -35,7 +29,10 @@
         </ion-card-content>
 
         <ion-item>
-            <ion-button fill="clear" slot="end" (click)="openArticle(article);"><div>Read </div><ion-icon slot="end" name="exit"></ion-icon></ion-button>
+          <ion-button fill="clear" slot="end" (click)="openArticle(article);">
+            <div>Read </div>
+            <ion-icon slot="end" name="exit"></ion-icon>
+          </ion-button>
         </ion-item>
 
       </ion-card>

@@ -18,14 +18,23 @@ import { LegalPageModule } from './legal.module';
     IonicModule,
     CommonModule,
     FormsModule,
-    AssignmentsPageModule,
-    CalculatorPageModule,
-    LegalPageModule,
     RouterModule.forChild([
-      { path: '', component: GradesPage },
-      { path: 'assignments', component: AssignmentsPage },
-      { path: 'calculator', component: CalculatorPage },
-      { path: 'legal', component: LegalPage }
+      { 
+        path: '', 
+        component: GradesPage
+      },
+      { 
+        path: 'legal', 
+        loadChildren: './legal.module#LegalPageModule'
+      },
+      { 
+        path: 'calculator', 
+        loadChildren: './calculator.module#CalculatorPageModule'
+      },
+      { 
+        path: 'assignments', 
+        loadChildren: './assignments.module#AssignmentsPageModule'
+      }
     ])
   ],
   declarations: [GradesPage]
