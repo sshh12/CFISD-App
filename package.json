@@ -6,7 +6,7 @@
   "scripts": {
     "android-dev": "ionic cordova run android",
     "ios-deploy": "ionic cordova build ios --rollup --prod",
-    "tmp": "cordova plugin add cordova-plugin-admob-free --save --variable ADMOB_APP_ID=\"ca-app-pub-9429036015049220~5362736348\""
+    "lab": "ionic serve --lab"
   },
   "private": false,
   "dependencies": {

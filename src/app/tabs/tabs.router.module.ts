@@ -2,10 +2,6 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 import { TabsPage } from './tabs.page';
-import { NewsPage } from '../news/news.page';
-import { GradesPage } from '../grades/grades.page';
-import { CalendarPage } from '../calendar/calendar.page';
-import { SitesPage } from '../sites/sites.page';
 
 const routes: Routes = [
   {
@@ -13,35 +9,26 @@ const routes: Routes = [
     component: TabsPage,
     children: [
       {
-        path: '',
-        redirectTo: '/tabs/(news:news)',
-        pathMatch: 'full',
-      },
-      {
         path: 'news',
-        outlet: 'news',
-        component: NewsPage
+        loadChildren: '../news/news.module#NewsPageModule'
       },
       {
         path: 'grades',
-        outlet: 'grades',
-        component: GradesPage
+        loadChildren: '../grades/grades.module#GradesPageModule'
       },
       {
         path: 'calendar',
-        outlet: 'calendar',
-        component: CalendarPage
+        loadChildren: '../calendar/calendar.module#CalendarPageModule'
       },
       {
         path: 'sites',
-        outlet: 'sites',
-        component: SitesPage
+        loadChildren: '../sites/sites.module#SitesPageModule'
       }
     ]
   },
   {
     path: '',
-    redirectTo: '/tabs/(news:news)',
+    redirectTo: '/tabs/news',
     pathMatch: 'full'
   }
 ];
