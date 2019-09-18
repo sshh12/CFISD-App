@@ -14,6 +14,19 @@ export class School {
 
 export const Schools: Array<School> = [
     {
+        "name": "Middle School",
+        "shortname": "middleschool",
+        "website": "https://www.cfisd.net/en/",
+        "faculty": null,
+        "bells": null,
+        "basicnews": "https://www.cfisd.net/en/news-media/district/",
+        "studentnews": null,
+        "colorA": "bridgeland-colorA",
+        "colorB": "bridgeland-colorB",
+        "colorC": "bridgeland-colorC",
+        "schooltype": "middle"
+    },
+    {
         "name": "Bridgeland",
         "shortname": "bridgeland",
         "website": "http://bridgeland.cfisd.net",
